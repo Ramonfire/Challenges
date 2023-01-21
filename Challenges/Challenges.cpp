@@ -870,7 +870,7 @@ void BehaviourOfPlusPlusI() {
      
      do
      {
-         cout << "Q to Quit\n A to Add a movie\nD to diplay all your current movies\nF to find a movie in your list\nU to update the watch count of a movie" << endl;
+         cout << "Q to Quit\nA to Add a movie\nD to diplay all your current movies\nF to find a movie in your list\nU to update the watch count of a movie" << endl;
          cin >> userInput;
          cin.clear();
          cin.ignore();
