@@ -15,6 +15,7 @@
 #include<cstring>//character base function
 #include<string>
 #include<cmath>
+#include"Movies.h"
 
 using std::cout;
 using std::cin;
@@ -88,6 +89,11 @@ void Quit();
 //S12
 int* applyall(const int* const arrayOne,size_t sizeOne,const int* const arrayTwo,size_t sizeTwo);
 void printArray(int* array, int size);
+//S13
+void AddMovies(Movies& movies);
+void ShowAllMovies(Movies& movies);
+void FindMovie(Movies& movies);
+void UpdateWatchCount(Movies& movies);
 /***********************************Globale variables for the S6 challenges****************************************/
 const double smallRoomFee{ 25.0 };
 const double largeRoomFee{ 35.0 };
@@ -99,35 +105,34 @@ const int validityInDays{ 30 };
 /**************************************** main funtion : will be running most tests for the entire course ******************************************/
 int main()
 {
-    /***************just me being curious*******************/
-    /*ReturnTypesInfo();
-    BehaviourOfPlusPlusI();*/
-
+    ReturnTypesInfo();
+    BehaviourOfPlusPlusI();
     cout << endl << "*********************************** Challenges ********************** \n";
-    /********************** Main*****************************/
+
     int index {3};
     cout << endl << "*********************************** challenge " <<++index <<"********************** \n";
-   // S4Challenge();
+    S4Challenge();
     cout << endl << "*********************************** challenge " << ++index << "********************** \n";
-   // S5Challenge();
+    S5Challenge();
     cout << endl << "*********************************** challenge " << ++index << "********************** \n";
-   // S6Challenge();
+    S6Challenge();
     cout << endl << "*********************************** challenge " << ++index << "********************** \n";
-   // S7Challenge();
+    S7Challenge();
     cout << endl << "*********************************** challenge " << ++index << "********************** \n";
-   // S8Challenge();
+    S8Challenge();
     cout << endl << "*********************************** challenge " << ++index << "********************** \n";
-   // S9Challenge();
+    S9Challenge();
     cout << endl << "*********************************** challenge " << ++index << "********************** \n";
-   // S10Challenge();
+    S10Challenge();
     cout << endl << "*********************************** Assignement 1********************** \n";
-   // Assignement1();
+    Assignement1();
     cout << endl << "*********************************** challenge " << ++index << "********************** \n";
-   //  S11Challenge();   
+    S11Challenge();   
     cout << endl << "*********************************** challenge " << ++index << "********************** \n";
-      S12Challenge();   
-   
-
+    S12Challenge();   
+    cout << endl << "*********************************** challenge " << ++index << "********************** \n";
+    S13Challenge();
+    S14Challenge();
     return 0;// just return whatever number you want , usually i run void main() but i m trying to follow the course to the letter xD
 }
 
@@ -543,7 +548,7 @@ void BehaviourOfPlusPlusI() {
      do
      {
         
-         cout << " E : encrypt a text  " << endl << " D : decrypt a text" << endl;
+         cout << " E : encrypt a text  " << endl << " D : decrypt a text" << endl<< " Q : QUIT" << endl;
          cin >> choice;
          cin.clear();
          cin.ignore();
@@ -622,15 +627,15 @@ void BehaviourOfPlusPlusI() {
      getline(cin, input);
      cout << "your pyramid : " << endl << endl << endl;
 
-     for (int i = 0; i < input.length(); i++)
+     for (size_t i = 0; i < input.length(); i++)
      {
          //priting left space 
-             for (int space= 0;space<= input.length()-i;space++)
+             for (size_t space= 0;space<= input.length()-i;space++)
              {
                  cout << " ";
              }
          //priting the word 1 letter then 2 letters, then 3  until lenght-1
-         for (int j = 0; j <= i;j++) {
+         for (size_t j = 0; j <= i;j++) {
              cout << input.at(j);
         } 
          //mirroring the print
@@ -843,7 +848,7 @@ void BehaviourOfPlusPlusI() {
      return newArrayPointer;
  }
  void printArray(int* array, int size) {
-     for (size_t i = 0; i < size; i++)
+     for (int  i = 0; i < size; i++)
      {
          cout << "\t" << *(array + i);
          if ((i+1) % 5 == 0)
@@ -860,8 +865,137 @@ void BehaviourOfPlusPlusI() {
  
  //Section 13 :OOP
  void S13Challenge() {
-    
+     char userInput{};
+     Movies HomeCinema;
+     
+     do
+     {
+         cout << "Q to Quit\n A to Add a movie\nD to diplay all your current movies\nF to find a movie in your list\nU to update the watch count of a movie" << endl;
+         cin >> userInput;
+         cin.clear();
+         cin.ignore();
+         switch (userInput)
+         {
+         case 'a':
+         case'A':
+         {
+             AddMovies(HomeCinema);
+             break;
+         }
+         case 'F':
+         case'f':
+         {
+             FindMovie(HomeCinema);
+             break;
+         }
+         case 'D':
+         case'd':
+         {
+             ShowAllMovies(HomeCinema);
+             break;
+         }
+         case 'U':
+         case'u':
+         {
+             UpdateWatchCount(HomeCinema);
+             break;
+         }
+
+
+
+
+
+
+         case'q' :
+         case'Q' :
+         {
+             cout << "GoodBye" << endl;
+             break;
+         }
+         default:
+             break;
+         }
+
+     } while (userInput!='q' && userInput!='Q');
  }
+
+
+ void AddMovies(Movies &movies ) {
+     string name{}; Rating rating{R}; long watchCount{};
+     cout<<"Name of the movie : "<<endl;
+     cin >> name;
+     cout<<"Rating of the movie R ,PG ,PG13 or G : "<<endl;
+     string ratingInput{};
+     cin >> ratingInput;
+     if (ratingInput =="R")
+     {
+         rating = R;
+     }
+     else if (ratingInput =="PG")
+     {
+         rating = PG;
+     } 
+     else if (ratingInput =="PG13")
+     {
+         rating = PG_13;
+     }
+     else if (ratingInput =="G")
+     {
+         rating = G;
+     } 
+     else
+     {
+         rating = R;
+         cout << "Unhandled inputs : Default rating is R" << endl;
+     }
+     
+     cout<<"watch count of the movie : "<<endl;
+     cin >> watchCount;
+     if (movies.AddMovie(name,rating,watchCount))
+     {
+         cout << "Added succesfully" << endl;
+     }
+ }
+ void ShowAllMovies(Movies &movies) {
+     if (movies.NumberOfMovies()==0)
+     {
+         cout << "Empty List" << endl;
+         return;
+     }
+     cout << "Showing all movies" << endl;
+     movies.ShowAllMovies();
+ }
+ void FindMovie(Movies& movies) {
+     string name{}; 
+     cout << "Name of the movie  to fetch: " << endl;
+     cin >> name;
+
+     if (movies.NumberOfMovies() == 0)
+     {
+         cout << "Can't fetch in an Empty List" << endl;
+         return;
+     }
+     movies.FindMovie(name);
+ }
+ void UpdateWatchCount(Movies& movies) {
+     string name{};
+     cout << "Name of the movie to Update : " << endl;
+     cin >> name;
+     if (movies.NumberOfMovies() == 0)
+     {
+         cout << "Can't fetch in an Empty List" << endl;
+         return;
+     }
+
+     if (movies.AddWatchCount(name))
+     {
+         cout << "watch Count Updated" << endl;
+     }
+ }
+
+
+
+
 
  //Section 14 :Operator overloading
  void S14Challenge() {}
