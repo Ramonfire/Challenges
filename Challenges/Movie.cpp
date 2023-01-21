@@ -20,7 +20,7 @@ Movie::Movie(Movie& movie) :name{ movie.name }, rating{ movie.rating }, watched{
 }
 
 
-//deconstructor-destroyer
+//destructor
 Movie::~Movie()
 {
 	std::cout << "Destorying movie : " << this->name << " watched :" << this->watched << " times" << std::endl;

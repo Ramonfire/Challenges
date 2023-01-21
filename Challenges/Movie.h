@@ -6,7 +6,9 @@
 
 using std::string;
 
+
 //a type that only accept the names decalred inside the scope.
+
 enum Rating
 {
 	PG,PG_13,R,G

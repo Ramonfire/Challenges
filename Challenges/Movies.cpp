@@ -6,7 +6,25 @@ void Movies::ShowAllMovies()
 	cout << "\t" << "name" << "\t" << "rating" << "\t" << "watche count" << endl;
 	for (auto var:movies)
 	{
-		cout << "\t" << (*var).getName() << "\t" << (*var).getRating() << "\t" << (*var).getWatched() << endl;
+		cout << "\t" << (*var).getName() << "\t"; 
+
+		if ((*var).getRating()==PG)
+		{
+			cout << "PG" << "\t";
+		}
+		else if ((*var).getRating()== PG_13)
+		{
+			cout << "PG-13" << "\t";
+		}
+		else if ((*var).getRating()==G)
+		{
+			cout << "G" << "\t";
+		}else 
+		{
+			cout << "R" << "\t";
+		}
+		
+		cout<< (*var).getWatched() << endl;
 	}
 	cout << "=========================================================";
 }
@@ -36,7 +54,26 @@ void Movies::FindMovie(string name)
 	{
 		if ((*var).getName() == name)
 		{
-			cout << "\t" << (*var).getName() << "\t" << (*var).getRating() << "\t" << (*var).getWatched() << endl;
+			cout << "\t" << (*var).getName() << "\t";
+
+		if ((*var).getRating() == PG)
+		{
+				cout << "PG" << "\t";
+		}
+		else if ((*var).getRating() == PG_13)
+		{
+				cout << "PG-13" << "\t";
+		}
+		else if ((*var).getRating() == G)
+		{
+				cout << "G" << "\t";
+		}
+		else
+		{
+				cout << "R" << "\t";
+		}
+
+			cout << (*var).getWatched() << endl;
 			return;
 		}
 	}

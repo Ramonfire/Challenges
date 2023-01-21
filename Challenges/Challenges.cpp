@@ -105,34 +105,9 @@ const int validityInDays{ 30 };
 /**************************************** main funtion : will be running most tests for the entire course ******************************************/
 int main()
 {
-    ReturnTypesInfo();
-    BehaviourOfPlusPlusI();
-    cout << endl << "*********************************** Challenges ********************** \n";
-
-    int index {3};
-    cout << endl << "*********************************** challenge " <<++index <<"********************** \n";
-    S4Challenge();
-    cout << endl << "*********************************** challenge " << ++index << "********************** \n";
-    S5Challenge();
-    cout << endl << "*********************************** challenge " << ++index << "********************** \n";
-    S6Challenge();
-    cout << endl << "*********************************** challenge " << ++index << "********************** \n";
-    S7Challenge();
-    cout << endl << "*********************************** challenge " << ++index << "********************** \n";
-    S8Challenge();
-    cout << endl << "*********************************** challenge " << ++index << "********************** \n";
-    S9Challenge();
-    cout << endl << "*********************************** challenge " << ++index << "********************** \n";
-    S10Challenge();
-    cout << endl << "*********************************** Assignement 1********************** \n";
-    Assignement1();
-    cout << endl << "*********************************** challenge " << ++index << "********************** \n";
-    S11Challenge();   
-    cout << endl << "*********************************** challenge " << ++index << "********************** \n";
-    S12Challenge();   
-    cout << endl << "*********************************** challenge " << ++index << "********************** \n";
+  
     S13Challenge();
-    S14Challenge();
+
     return 0;// just return whatever number you want , usually i run void main() but i m trying to follow the course to the letter xD
 }
 
