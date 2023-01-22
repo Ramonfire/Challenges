@@ -117,7 +117,7 @@ Movies::Movies(Movies& list)
 	cout << "copied list of size" << list.movies.size() << " into your target" << endl;
 }
 
-// Moving object syntax  Movies* move = new Movies(std::move(*movies));
+// Moving object: syntax => Movies* move = new Movies(std::move(*movies));
 Movies::Movies(Movies&& list) :movies{list.movies}
 {
 	for (auto var : list.movies)
