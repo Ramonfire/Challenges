@@ -28,7 +28,6 @@ public:
 	long getWatched() const {
 		return this->watched;
 	}
-
 	void AddWatchCount() {
 		watched++;
 	}

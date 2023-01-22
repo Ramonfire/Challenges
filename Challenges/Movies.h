@@ -26,6 +26,8 @@ public:
 	size_t NumberOfMovies();
 
 	Movies();
+	Movies(Movies& movies);
+	Movies(Movies&& movies);
 	~Movies();
 
 private:

@@ -107,8 +107,32 @@ Movies::Movies()
 {
 }
 
+//deep copy
+Movies::Movies(Movies& list)
+{
+	for  (auto var : list.movies)
+	{
+		this->movies.push_back(new Movie(*(var)));
+	}
+	cout << "copied list of size" << list.movies.size() << " into your target" << endl;
+}
+
+// to verify the declaration. Not sure how it works for objects since they are l values
+Movies::Movies(Movies&& list) :movies{list.movies}
+{
+	for (auto var : list.movies)
+	{
+		var = nullptr;
+	}
+
+	cout << "Moved list of size" << list.movies.size() << " into your target" << endl;
+	list.movies.clear();
+
+}
+
 Movies::~Movies()
 {
+	cout << "freeing Memory and destorying object" << endl;
 	for (auto var : movies)
 	{
 		delete var;
