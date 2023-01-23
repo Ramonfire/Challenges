@@ -19,6 +19,12 @@
     <Filter Include="Header Files\Movies">
       <UniqueIdentifier>{d79396ed-b30a-4dd0-9db8-20487e95d03a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Mystring">
+      <UniqueIdentifier>{87f2c09b-1def-4496-82d8-69e4379b0d67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Mystring">
+      <UniqueIdentifier>{376de788-305f-4cb0-9aa3-4fef74f02b31}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Challenges.cpp">
@@ -30,6 +36,9 @@
     <ClCompile Include="Movies.cpp">
       <Filter>Source Files\Movies</Filter>
     </ClCompile>
+    <ClCompile Include="Mystring.cpp">
+      <Filter>Source Files\Mystring</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Movie.h">
@@ -37,6 +46,9 @@
     </ClInclude>
     <ClInclude Include="Movies.h">
       <Filter>Header Files\Movies</Filter>
+    </ClInclude>
+    <ClInclude Include="Mystring.h">
+      <Filter>Header Files\Mystring</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

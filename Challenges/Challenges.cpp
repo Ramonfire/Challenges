@@ -615,7 +615,7 @@ void BehaviourOfPlusPlusI() {
         } 
          //mirroring the print
          if (i != 0) {
-             for (int j = i-1; j >= 0; j--) {
+             for (size_t j = i-1; j >= 0; j--) {
                  cout << input.at(j);
              }
          }

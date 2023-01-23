@@ -118,7 +118,7 @@ Movies::Movies(const Movies& list)
 }
 
 // Moving object: syntax => Movies* move = new Movies(std::move(*movies));
-Movies::Movies(Movies&& list) :movies{list.movies}
+Movies::Movies(Movies&& list) noexcept :movies{list.movies}
 {
 	for (auto var : list.movies)
 	{

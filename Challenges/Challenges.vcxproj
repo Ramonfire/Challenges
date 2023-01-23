@@ -142,10 +142,12 @@
     <ClCompile Include="Challenges.cpp" />
     <ClCompile Include="Movie.cpp" />
     <ClCompile Include="Movies.cpp" />
+    <ClCompile Include="Mystring.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Movie.h" />
     <ClInclude Include="Movies.h" />
+    <ClInclude Include="Mystring.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
