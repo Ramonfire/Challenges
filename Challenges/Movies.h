@@ -32,6 +32,7 @@ public:
 	//Movies&& operator=(Movies&& movies);  Move Assignement for Movies not implemented, uses same logic as Move constructor
 	//bool operator ==(const Movies &movies); comparison operators return true if the lists are identical , use this syntax for other operator overloading .
 	//friend Movies operator+(const Movies &movies1 , const Movies &movies2); adding two list into one , decalring a friend of the class to be able to use the members freely. 
+
 	~Movies();
 
 private:
