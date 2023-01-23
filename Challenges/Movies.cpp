@@ -108,7 +108,7 @@ Movies::Movies()
 }
 
 //deep copy
-Movies::Movies(Movies& list)
+Movies::Movies(const Movies& list)
 {
 	for  (auto var : list.movies)
 	{
