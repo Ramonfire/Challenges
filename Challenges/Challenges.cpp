@@ -16,6 +16,7 @@
 #include<string>
 #include<cmath>
 #include"Movies.h"
+#include"Mystring.h"
 
 using std::cout;
 using std::cin;
@@ -94,6 +95,8 @@ void AddMovies(Movies& movies);
 void ShowAllMovies(Movies& movies);
 void FindMovie(Movies& movies);
 void UpdateWatchCount(Movies& movies);
+//S14
+void DisplayCharString(Mystring& Mystring);
 /***********************************Globale variables for the S6 challenges****************************************/
 const double smallRoomFee{ 25.0 };
 const double largeRoomFee{ 35.0 };
@@ -106,7 +109,7 @@ const int validityInDays{ 30 };
 int main()
 {
   
-    S14Challenge();
+    S15Challenge();
   
     return 0;// just return whatever number you want , usually i run void main() but i m trying to follow the course to the letter xD
 }
@@ -974,11 +977,60 @@ void BehaviourOfPlusPlusI() {
 
  //Section 14 :Operator overloading
  void S14Challenge() {
+     char* input{};
+     input = new char[6]{ 'H','e','l','l','o' };
+
     
+
+     Mystring test{input};
+     delete[] input;
+     //copy
+     Mystring copy{ test };
+     copy = test;
+     DisplayCharString(copy);
+     
+     Mystring moved{std::move( test) };
+     DisplayCharString(moved);
+     test = std::move(moved);
+     DisplayCharString(test);
+    ++test;
+
+    cout << boolalpha;
+
+    cout << (test == test)<<endl;
+    cout << (test != test) << endl;
+    cout << (test < test) << endl;
+    cout << (test > test) << endl;
+
+    Mystring concat = (test * 3);
+    DisplayCharString(concat);
+    copy *= 2;
+    DisplayCharString(copy);
+    cout << noboolalpha;
+
+    Mystring alpha = copy + concat;
+
+    alpha += copy;
+
+    DisplayCharString(alpha);
+     
+
+     
+ }
+
+
+ void DisplayCharString(Mystring& Mystring) {
+     for (size_t i = 0; i <strlen(Mystring.str); i++)
+     {
+         cout << Mystring.str[i];
+     }
+     cout << endl;
  }
 
  //Section 15 : inheritance
- void S15Challenge() {}
+ void S15Challenge() {
+ 
+ }
 
  //Section 16 : Polymorphism
  void S16Challenge() {}
