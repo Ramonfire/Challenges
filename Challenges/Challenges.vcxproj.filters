@@ -25,6 +25,18 @@
     <Filter Include="Source Files\Mystring">
       <UniqueIdentifier>{376de788-305f-4cb0-9aa3-4fef74f02b31}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Account">
+      <UniqueIdentifier>{969d5b8e-7fcf-43d9-a06d-637961ffabdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Account">
+      <UniqueIdentifier>{f118505c-c97f-4b61-b96c-fd4bdad46327}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Account\Utility">
+      <UniqueIdentifier>{cf85cc20-1e10-4afb-aaf4-632dce1acb88}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Account\Utility">
+      <UniqueIdentifier>{9a9bcb9d-f484-40fd-ae40-c191827a6282}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Challenges.cpp">
@@ -39,6 +51,21 @@
     <ClCompile Include="Mystring.cpp">
       <Filter>Source Files\Mystring</Filter>
     </ClCompile>
+    <ClCompile Include="Account.cpp">
+      <Filter>Source Files\Account</Filter>
+    </ClCompile>
+    <ClCompile Include="SavingsAccount.cpp">
+      <Filter>Source Files\Account</Filter>
+    </ClCompile>
+    <ClCompile Include="AccountsUtility.cpp">
+      <Filter>Source Files\Account\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="TrustAccount.cpp">
+      <Filter>Source Files\Account</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckingAccount.cpp">
+      <Filter>Source Files\Account</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Movie.h">
@@ -49,6 +76,21 @@
     </ClInclude>
     <ClInclude Include="Mystring.h">
       <Filter>Header Files\Mystring</Filter>
+    </ClInclude>
+    <ClInclude Include="Account.h">
+      <Filter>Header Files\Account</Filter>
+    </ClInclude>
+    <ClInclude Include="SavingsAccount.h">
+      <Filter>Header Files\Account</Filter>
+    </ClInclude>
+    <ClInclude Include="AccountsUtility.h">
+      <Filter>Header Files\Account\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="TrustAccount.h">
+      <Filter>Header Files\Account</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckingAccount.h">
+      <Filter>Header Files\Account</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

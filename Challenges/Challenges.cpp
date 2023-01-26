@@ -1003,6 +1003,7 @@ void BehaviourOfPlusPlusI() {
     cout << (test > test) << endl;
 
     Mystring concat = (test * 3);
+
     DisplayCharString(concat);
     copy *= 2;
     DisplayCharString(copy);
@@ -1029,7 +1030,7 @@ void BehaviourOfPlusPlusI() {
 
  //Section 15 : inheritance
  void S15Challenge() {
- 
+    
  }
 
  //Section 16 : Polymorphism
