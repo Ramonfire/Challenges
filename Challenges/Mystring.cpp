@@ -13,6 +13,7 @@ Mystring::Mystring():str{nullptr}
 Mystring::Mystring(char* newStr) 
 {
 	std::cout << "init with value" << std::endl;
+	delete[] str;
 	str = new char[std::strlen(newStr) + 1];
 	for (size_t i = 0; i < std::strlen(newStr)+1; i++)
 	{
@@ -20,7 +21,7 @@ Mystring::Mystring(char* newStr)
 	}
 }
 
-Mystring::Mystring(Mystring& string)
+Mystring::Mystring(const Mystring& string)
 {
 	std::cout << "copy" << std::endl;
 	str = new char[std::strlen(string.str) + 1];

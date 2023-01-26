@@ -8,7 +8,7 @@ class Mystring
 public:
 	Mystring();
 	Mystring(char* newStr);
-	Mystring(Mystring& string);
+	Mystring(const Mystring& string);
 	Mystring(Mystring&& string) noexcept;
 	~Mystring();
 
@@ -26,8 +26,9 @@ public:
 	bool operator<(const Mystring& lhs);
 	friend Mystring operator + (const Mystring firstString, const Mystring secondString);
 	Mystring &operator+=(const Mystring& lhs);
+	friend Mystring operator * (const Mystring string, int&& multiplier);
 	Mystring &operator*=(int &&lhs);
-	friend Mystring operator * (const Mystring string, int &&multiplier);
+	
 
 	Mystring& operator++();
 	Mystring& operator++(int);
