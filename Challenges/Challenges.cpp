@@ -1020,9 +1020,9 @@ void BehaviourOfPlusPlusI() {
 
 
  void DisplayCharString(Mystring& Mystring) {
-     for (size_t i = 0; i <strlen(Mystring.str); i++)
+     for (size_t i = 0; i <Mystring.getlength(); i++)
      {
-         cout << Mystring.str[i];
+         cout << Mystring.MyString()[i];
      }
      cout << endl;
  }

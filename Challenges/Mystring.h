@@ -34,14 +34,15 @@ public:
 
 
 	size_t getlength();
+	char* MyString();
 
 
 
-	char* str;
+	
 	
 
 private:
-	
+	char* str;
 };
 
 

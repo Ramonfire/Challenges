@@ -29,9 +29,11 @@ Mystring::Mystring(Mystring& string)
 
 }
 
-Mystring::Mystring(Mystring&& string) noexcept :str{string.str}
+Mystring::Mystring(Mystring&& string) noexcept 
 {
 	std::cout << "Move" << std::endl;
+	delete[] str;
+	str = string.str;
 	string.str = nullptr;
 }
 
@@ -217,4 +219,9 @@ Mystring& Mystring::operator++(int)
  size_t Mystring::getlength()
  {
 	 return std::strlen(str);
+ }
+
+ char* Mystring::MyString()
+ {
+	 return str;
  }
