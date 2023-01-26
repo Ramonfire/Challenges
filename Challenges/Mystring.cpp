@@ -61,7 +61,24 @@ Mystring& Mystring::operator=(const Mystring& rhs)
 	return *this;
 }
 
+
 Mystring& Mystring::operator=(Mystring&& rhs) noexcept
+{
+	std::cout << "Move operator" << std::endl;
+	if (this == &rhs)
+	{
+		return *this;
+	}
+	delete[] str;
+	str = rhs.str;
+	rhs.str = nullptr;
+
+	return *this;
+
+}
+
+//overading the smaller or equal to operator to move the value from the reference to this;
+Mystring& Mystring::operator<=(Mystring& rhs) noexcept
 {
 	std::cout << "Move operator" << std::endl;
 	if (this == &rhs)

@@ -18,6 +18,7 @@ public:
 
 	Mystring& operator=(const Mystring& rhs);
 	Mystring& operator=(Mystring&& rhs) noexcept;
+	Mystring& operator<=(Mystring& rhs) noexcept;
 
 
 	bool operator==(const  Mystring& lhs);

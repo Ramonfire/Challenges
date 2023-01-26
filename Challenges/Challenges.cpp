@@ -109,7 +109,7 @@ const int validityInDays{ 30 };
 int main()
 {
   
-    S15Challenge();
+    S14Challenge();
   
     return 0;// just return whatever number you want , usually i run void main() but i m trying to follow the course to the letter xD
 }
@@ -991,7 +991,7 @@ void BehaviourOfPlusPlusI() {
      
      Mystring moved{std::move( test) };
      DisplayCharString(moved);
-     test = std::move(moved);
+     test <= moved;
      DisplayCharString(test);
     ++test;
 
