@@ -33,8 +33,15 @@ bool TrustAccount::Withdrawl(double amount)
 		return false;
 	}
 
-	withdrawalCount++;
+	++withdrawalCount;
 	return SavingsAccount::Withdraw(amount);
 	
 	return false;
+}
+
+std::ostream& operator<<(std::ostream &os, const TrustAccount& account)
+{
+	os << "Trust Account name : " << account.getName() << std::endl << "balance: " << account.getBalance() << std::endl << "Interest Rate: " << account.getInterestRate() << std::endl
+		<< "Withdrawal left: " << (account.withdrawalCount) << std::endl;
+	return os;
 }

@@ -29,6 +29,6 @@ double SavingsAccount::getInterestRate() const
 
 std::ostream& operator<<(std::ostream& os,const  SavingsAccount& account)
 {
-    os << "Account name : " << account.getName() << std::endl << "balance: " << account.getBalance() << std::endl << "Interest Rate: " << account.getInterestRate() << std::endl;
+    os << "Saving Account name : " << account.getName() << std::endl << "balance: " << account.getBalance() << std::endl << "Interest Rate: " << account.getInterestRate() << std::endl;
     return os;
 }

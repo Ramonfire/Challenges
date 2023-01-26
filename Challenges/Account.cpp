@@ -16,7 +16,7 @@ bool Account::Deposit(double amount)
 	{
 		return false;
 	}
-	balance += amount;
+	this->balance += amount;
 	return true;
 }
 
@@ -27,7 +27,7 @@ bool Account::Withdraw(double amount)
 
 		return false;
 	}
-	balance -= amount;
+	this->balance -= amount;
 	return true;
 }
 

@@ -6,7 +6,7 @@
 
 class CheckingAccount :public Account
 {
-
+	friend std::ostream& operator<<(std::ostream &os, const CheckingAccount& account);
 public:
 	CheckingAccount(std::string name = dfName,double balance=0.0);
 	~CheckingAccount();

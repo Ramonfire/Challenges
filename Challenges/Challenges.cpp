@@ -17,6 +17,11 @@
 #include<cmath>
 #include"Movies.h"
 #include"Mystring.h"
+#include"Account.h"
+#include"SavingsAccount.h"
+#include"TrustAccount.h"
+#include"CheckingAccount.h"
+#include"AccountsUtility.h"
 
 using std::cout;
 using std::cin;
@@ -1030,7 +1035,31 @@ void BehaviourOfPlusPlusI() {
 
  //Section 15 : inheritance
  void S15Challenge() {
-    
+     vector<CheckingAccount> checkingAccounts;
+     vector<TrustAccount> trustAccounts;
+
+     checkingAccounts.push_back(CheckingAccount{}); 
+     checkingAccounts.push_back(CheckingAccount{"test"});
+     checkingAccounts.push_back(CheckingAccount{"test",100});
+
+     Display(checkingAccounts);
+
+     MassWithdraw(checkingAccounts, 100);
+     MassDeposit(checkingAccounts, 50);
+     Display(checkingAccounts);
+
+     trustAccounts.push_back(TrustAccount{});
+     trustAccounts.push_back(TrustAccount{"test",100});
+     trustAccounts.push_back(TrustAccount{"test",200,30});
+
+     Display(trustAccounts);
+
+     MassWithdraw(trustAccounts, 100);
+     MassDeposit(trustAccounts, 5001);
+     Display(trustAccounts);
+
+     
+
  }
 
  //Section 16 : Polymorphism

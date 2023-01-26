@@ -1,9 +1,9 @@
 #include "AccountsUtility.h"
 #include<iostream>
 
-void Display( vector<Account>& accounts)
+void Display( const vector<Account>& accounts)
 {
-	for (auto acc:accounts)
+	for (auto& acc:accounts)
 	{
 		std::cout << acc<<std::endl;
 	}
@@ -11,7 +11,7 @@ void Display( vector<Account>& accounts)
 
 void MassDeposit(vector<Account>& accounts, double amount)
 {
-	for (auto acc : accounts)
+	for (auto& acc : accounts)
 	{
 		std::cout << acc.getName();
 		std::cout << "state" << acc.Deposit(amount) ? "done" : "error";
@@ -21,19 +21,20 @@ void MassDeposit(vector<Account>& accounts, double amount)
 
 void MassWithdraw(vector<Account>& accounts, double amount)
 {
-	for (auto acc:accounts)
+	for (auto& acc:accounts)
 	{
 	std::cout << acc.getName();
-	std::cout<<"state: " <<acc.Withdraw(amount)?"done":"error";
+	std::cout<<" state: " ;
+	std::cout<< (acc.Withdraw(amount) ? "done" : "error");
 	std::cout << std::endl;
 	}
 }
 
 
 
-void Display( vector<SavingsAccount>& accounts)
+void Display(const  vector<SavingsAccount>& accounts)
 {
-	for (auto acc : accounts)
+	for (auto& acc : accounts)
 	{
 		std::cout << acc << std::endl;
 	}
@@ -41,7 +42,7 @@ void Display( vector<SavingsAccount>& accounts)
 
 void MassDeposit(vector<SavingsAccount>& accounts, double amount)
 {
-	for (auto acc : accounts)
+	for (auto& acc : accounts)
 	{
 		std::cout << acc.getName();
 		std::cout << "state: " << acc.Deposit(amount) ? "done" : "error";
@@ -51,7 +52,7 @@ void MassDeposit(vector<SavingsAccount>& accounts, double amount)
 
 void MassWithdraw(vector<SavingsAccount>& accounts, double amount)
 {
-	for (auto acc : accounts)
+	for (auto& acc : accounts)
 	{
 		std::cout << acc.getName();
 		std::cout << "state" << acc.Withdraw(amount) ? "done" : "error";
@@ -60,9 +61,9 @@ void MassWithdraw(vector<SavingsAccount>& accounts, double amount)
 }
 
 
-void Display( vector<CheckingAccount>& accounts)
+void Display(const  vector<CheckingAccount>& accounts)
 {
-	for (auto acc : accounts)
+	for (auto& acc : accounts)
 	{
 		std::cout << acc << std::endl;
 	}
@@ -70,7 +71,7 @@ void Display( vector<CheckingAccount>& accounts)
 
 void MassDeposit(vector<CheckingAccount>& accounts, double amount)
 {
-	for (auto acc : accounts)
+	for (auto& acc : accounts)
 	{
 		std::cout << acc.getName();
 		std::cout << "state: " << acc.Deposit(amount) ? "done" : "error";
@@ -80,7 +81,7 @@ void MassDeposit(vector<CheckingAccount>& accounts, double amount)
 
 void MassWithdraw(vector<CheckingAccount>& accounts, double amount)
 {
-	for (auto acc : accounts)
+	for (auto& acc : accounts)
 	{
 		std::cout << acc.getName();
 		std::cout << "state" << acc.Withdraw(amount) ? "done" : "error";
@@ -90,7 +91,7 @@ void MassWithdraw(vector<CheckingAccount>& accounts, double amount)
 
 
 
-void Display( vector<TrustAccount>& accounts)
+void Display( const vector<TrustAccount>& accounts)
 {
 	for (auto acc : accounts)
 	{
@@ -100,7 +101,7 @@ void Display( vector<TrustAccount>& accounts)
 
 void MassDeposit(vector<TrustAccount>& accounts, double amount)
 {
-	for (auto acc : accounts)
+	for (auto &acc : accounts)
 	{
 		std::cout << acc.getName();
 		std::cout << "state: " << acc.Deposit(amount) ? "done" : "error";
@@ -110,10 +111,11 @@ void MassDeposit(vector<TrustAccount>& accounts, double amount)
 
 void MassWithdraw(vector<TrustAccount>& accounts, double amount)
 {
-	for (auto acc : accounts)
+	for (auto& acc : accounts)
 	{
 		std::cout << acc.getName();
-		std::cout << "state" << acc.Withdraw(amount) ? "done" : "error";
+		std::cout << " state: ";
+		std::cout << (acc.Withdraw(amount) ? "done" : "error");
 		std::cout << std::endl;
 	}
 }
