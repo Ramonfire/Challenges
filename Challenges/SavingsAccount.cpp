@@ -24,19 +24,12 @@ bool SavingsAccount::Deposit(double amount)
         return false;
     }
      amount+= amount * (interestRate / 100);
-     this->balance += amount;
-     return true;
+     return Account::Deposit(amount);
 }
 
 bool SavingsAccount::Withdraw(double amount)
 {
-    if (balance - amount < 0)
-    {
-
-        return false;
-    }
-    this->balance -= amount;
-    return true;
+    return Account::Withdraw(amount);
 }
 
 double SavingsAccount::getInterestRate() const

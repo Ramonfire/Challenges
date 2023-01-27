@@ -10,7 +10,8 @@ Account::~Account()
 {
 }
 
-/*bool Account::Deposit(double amount)
+
+bool Account::Deposit(double amount)
 {
 	if (amount<0)
 	{
@@ -18,9 +19,9 @@ Account::~Account()
 	}
 	this->balance += amount;
 	return true;
-}*/
+}
 
-/*bool Account::Withdraw(double amount)
+bool Account::Withdraw(double amount)
 {
 	if (balance-amount<0)
 	{
@@ -29,7 +30,7 @@ Account::~Account()
 	}
 	this->balance -= amount;
 	return true;
-}*/
+}
 
 void Account::print(std::ostream& os) const
 {

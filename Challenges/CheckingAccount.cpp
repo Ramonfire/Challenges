@@ -20,22 +20,12 @@ void CheckingAccount::print(std::ostream& os) const
  bool CheckingAccount::Withdraw(double amount)
 {
 	 amount += dfFee;
-	 if (balance - amount < 0)
-	 {
-		 return false;
-	 }
-	 this->balance -= amount;
-	 return true;
+	 return Account::Withdraw(amount);
 }
 
  bool CheckingAccount::Deposit(double amount)
  {
-	 if (amount < 0)
-	 {
-		 return false;
-	 }
-	 this->balance += amount;
-	 return true;
+	 return Account::Deposit(amount);
  }
 
 std::ostream& operator<<(std::ostream& os, const CheckingAccount& account)
