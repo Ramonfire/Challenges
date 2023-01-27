@@ -113,7 +113,7 @@ const int validityInDays{ 30 };
 int main()
 {
   
-    S15_16Challenge();
+    S17Challenge();
   
     return 0;// just return whatever number you want , usually i run void main() but i m trying to follow the course to the letter xD
 }
@@ -1041,11 +1041,21 @@ void BehaviourOfPlusPlusI() {
      Account* c2 = new SavingsAccount("testSaving", 100,5.0);
      Account* t2 = new TrustAccount("testTrust", 100,20.0);
 
+
+
      accounts.push_back(c1);
      accounts.push_back(c2);
      accounts.push_back(t2);
  
+     SavingsAccount saving = SavingsAccount("savingAccount", 20, 20);
+     SavingsAccount trust = TrustAccount("TrustAccount", 10, 10);
+     CheckingAccount checking = CheckingAccount("checkingAccount", 5);
 
+     cout << saving << endl;
+     cout << trust << endl;
+     cout << checking << endl;
+
+     cout << "===============================================" << endl;
      Display(accounts);
      cout << "===============================================" << endl;
      MassDeposit(accounts, 10);
@@ -1062,7 +1072,9 @@ void BehaviourOfPlusPlusI() {
  
 
  //Section 17 :Smart pointers
- void S17Challenge() {}
+ void S17Challenge() {
+ 
+ }
 
  //Section 18 :Exception hadnling
  void S18Challenge() {}
