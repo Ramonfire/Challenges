@@ -1037,15 +1037,15 @@ void BehaviourOfPlusPlusI() {
 
      vector<Account *> accounts;
 
-     Account* c1 = new CheckingAccount("testChecking", 100);
-     Account* c2 = new SavingsAccount("testSaving", 100,5.0);
-     Account* t2 = new TrustAccount("testTrust", 100,20.0);
+     Account* account1 = new CheckingAccount("testChecking", 100);
+     Account* account2 = new SavingsAccount("testSaving", 100,5.0);
+     Account* account3 = new TrustAccount("testTrust", 100,20.0);
 
 
 
-     accounts.push_back(c1);
-     accounts.push_back(c2);
-     accounts.push_back(t2);
+     accounts.push_back(account1);
+     accounts.push_back(account2);
+     accounts.push_back(account3);
  
      SavingsAccount saving = SavingsAccount("savingAccount", 20, 20);
      SavingsAccount trust = TrustAccount("TrustAccount", 10, 10);
@@ -1066,7 +1066,9 @@ void BehaviourOfPlusPlusI() {
      cout << "===============================================" << endl;
      Display(accounts);
      
-
+     delete  account1; 
+     delete  account2; 
+     delete  account3;
  }
 
  
