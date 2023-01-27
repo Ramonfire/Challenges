@@ -9,16 +9,37 @@ CheckingAccount::CheckingAccount(std::string name, double balance)
 
 CheckingAccount::~CheckingAccount()
 {
+	
 }
 
-bool CheckingAccount::Withdraw(double amount)
+void CheckingAccount::print(std::ostream& os) const
 {
-	amount += dfFee;
-	return Account::Withdraw(amount);
+	os << "Checking Account name : " << getName() << std::endl << "balance: " << getBalance() << std::endl;
 }
+
+ bool CheckingAccount::Withdraw(double amount)
+{
+	 amount += dfFee;
+	 if (balance - amount < 0)
+	 {
+		 return false;
+	 }
+	 this->balance -= amount;
+	 return true;
+}
+
+ bool CheckingAccount::Deposit(double amount)
+ {
+	 if (amount < 0)
+	 {
+		 return false;
+	 }
+	 this->balance += amount;
+	 return true;
+ }
 
 std::ostream& operator<<(std::ostream& os, const CheckingAccount& account)
 {
-	os << "Checking Account name : " << account.getName() << std::endl << "balance: " << account.getBalance() << std::endl;
+	
 	return os;
 }

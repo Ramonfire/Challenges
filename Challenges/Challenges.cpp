@@ -64,9 +64,8 @@ void S13Challenge();
 
 void S14Challenge();
 
-void S15Challenge();
+void S15_16Challenge();
 
-void S16Challenge();
 
 void S17Challenge();
 
@@ -114,7 +113,7 @@ const int validityInDays{ 30 };
 int main()
 {
   
-    S15Challenge();
+    S15_16Challenge();
   
     return 0;// just return whatever number you want , usually i run void main() but i m trying to follow the course to the letter xD
 }
@@ -623,8 +622,8 @@ void BehaviourOfPlusPlusI() {
         } 
          //mirroring the print
          if (i != 0) {
-             for (size_t j = i-1; j >= 0; j--) {
-                 cout << input.at(j);
+             for (size_t j = i; j > 0; j--) {
+                 cout << input.at(j-1);
              }
          }
          cout << endl;
@@ -1033,37 +1032,34 @@ void BehaviourOfPlusPlusI() {
      cout << endl;
  }
 
- //Section 15 : inheritance
- void S15Challenge() {
-     vector<CheckingAccount> checkingAccounts;
-     vector<TrustAccount> trustAccounts;
+ //Section 15 : inheritance//Section 16 : Polymorphism
+ void S15_16Challenge() {
 
-     checkingAccounts.push_back(CheckingAccount{}); 
-     checkingAccounts.push_back(CheckingAccount{"test"});
-     checkingAccounts.push_back(CheckingAccount{"test",100});
+     vector<Account *> accounts;
 
-     Display(checkingAccounts);
+     Account* c1 = new CheckingAccount("testChecking", 100);
+     Account* c2 = new SavingsAccount("testSaving", 100,5.0);
+     Account* t2 = new TrustAccount("testTrust", 100,20.0);
 
-     MassWithdraw(checkingAccounts, 100);
-     MassDeposit(checkingAccounts, 50);
-     Display(checkingAccounts);
+     accounts.push_back(c1);
+     accounts.push_back(c2);
+     accounts.push_back(t2);
+ 
 
-     trustAccounts.push_back(TrustAccount{});
-     trustAccounts.push_back(TrustAccount{"test",100});
-     trustAccounts.push_back(TrustAccount{"test",200,30});
-
-     Display(trustAccounts);
-
-     MassWithdraw(trustAccounts, 100);
-     MassDeposit(trustAccounts, 5001);
-     Display(trustAccounts);
-
+     Display(accounts);
+     cout << "===============================================" << endl;
+     MassDeposit(accounts, 10);
+     cout << "===============================================" << endl;
+     Display(accounts);
+     cout << "===============================================" << endl;
+     MassWithdraw(accounts, 110);
+     cout << "===============================================" << endl;
+     Display(accounts);
      
 
  }
 
- //Section 16 : Polymorphism
- void S16Challenge() {}
+ 
 
  //Section 17 :Smart pointers
  void S17Challenge() {}

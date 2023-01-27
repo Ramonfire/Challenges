@@ -7,12 +7,12 @@
 
 class TrustAccount : public SavingsAccount
 {
-	friend std::ostream& operator<<(std::ostream &os,const TrustAccount& account);
 public:
 	TrustAccount(std::string accountName=dfName,double balance=dfBalance,double rate=dfRate);
-	~TrustAccount();
-	bool Deposit(double amount);
-	bool Withdrawl(double amount);
+	virtual ~TrustAccount();
+	virtual void print(std::ostream& os) const  override;
+	virtual bool Deposit(double amount) override;
+	virtual bool Withdraw(double amount) override;
 	
 
 protected:

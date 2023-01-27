@@ -2,17 +2,18 @@
 #define _ACCOUNT_H_
 #include <iostream>
 #include<string>
+#include"I_Printable.h"
 
 
-class Account
+class Account: public I_Printable
 {
-	friend std::ostream& operator<<(std::ostream& os,const  Account& account);
 
 public:
 	Account(std::string accountName=defName,double balance=defBalance);
-	~Account();
-	bool Deposit(double amount);
-	bool Withdraw(double amount);
+	virtual ~Account();
+	virtual bool Deposit(double amount)=0;
+	virtual bool Withdraw(double amount)=0;
+	virtual void print(std::ostream& os) const  override;
 	double getBalance() const;
 	std::string getName() const;
 

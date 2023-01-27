@@ -12,14 +12,31 @@ SavingsAccount::~SavingsAccount()
 {
 }
 
+void SavingsAccount::print(std::ostream& os) const
+{
+    os << "Saving Account name : " << getName() << std::endl << "balance: " << getBalance() << std::endl << "Interest Rate: " << getInterestRate() << std::endl;
+}
+
 bool SavingsAccount::Deposit(double amount)
 {
-    if (amount<0)
+    if (amount < 0)
     {
         return false;
     }
      amount+= amount * (interestRate / 100);
-   return  Account::Deposit(amount);
+     this->balance += amount;
+     return true;
+}
+
+bool SavingsAccount::Withdraw(double amount)
+{
+    if (balance - amount < 0)
+    {
+
+        return false;
+    }
+    this->balance -= amount;
+    return true;
 }
 
 double SavingsAccount::getInterestRate() const
@@ -27,8 +44,3 @@ double SavingsAccount::getInterestRate() const
     return interestRate;
 }
 
-std::ostream& operator<<(std::ostream& os,const  SavingsAccount& account)
-{
-    os << "Saving Account name : " << account.getName() << std::endl << "balance: " << account.getBalance() << std::endl << "Interest Rate: " << account.getInterestRate() << std::endl;
-    return os;
-}

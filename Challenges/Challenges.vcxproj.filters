@@ -25,17 +25,23 @@
     <Filter Include="Source Files\Mystring">
       <UniqueIdentifier>{376de788-305f-4cb0-9aa3-4fef74f02b31}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Account">
-      <UniqueIdentifier>{969d5b8e-7fcf-43d9-a06d-637961ffabdb}</UniqueIdentifier>
+    <Filter Include="Header Files\Account-S16">
+      <UniqueIdentifier>{5c2e6ceb-39c8-46c0-a421-c64f1a6b9aa7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Account-S16">
+      <UniqueIdentifier>{cde1d829-fd43-4c3e-a34b-9f9ed46dbc99}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Account">
       <UniqueIdentifier>{f118505c-c97f-4b61-b96c-fd4bdad46327}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Account\Utility">
-      <UniqueIdentifier>{cf85cc20-1e10-4afb-aaf4-632dce1acb88}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Account\Utility">
       <UniqueIdentifier>{9a9bcb9d-f484-40fd-ae40-c191827a6282}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Account">
+      <UniqueIdentifier>{969d5b8e-7fcf-43d9-a06d-637961ffabdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Account\Utility">
+      <UniqueIdentifier>{cf85cc20-1e10-4afb-aaf4-632dce1acb88}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +72,9 @@
     <ClCompile Include="CheckingAccount.cpp">
       <Filter>Source Files\Account</Filter>
     </ClCompile>
+    <ClCompile Include="I_Printable.cpp">
+      <Filter>Source Files\Account-S16</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Movie.h">
@@ -91,6 +100,9 @@
     </ClInclude>
     <ClInclude Include="CheckingAccount.h">
       <Filter>Header Files\Account</Filter>
+    </ClInclude>
+    <ClInclude Include="I_Printable.h">
+      <Filter>Header Files\Account-S16</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -11,16 +11,31 @@ TrustAccount::~TrustAccount()
 {
 }
 
+void TrustAccount::print(std::ostream& os) const
+{
+	os << "Trust Account name : " << getName() << std::endl << "balance: " << getBalance() << std::endl << "Interest Rate: " << getInterestRate() << std::endl
+		<< "Withdrawal left: " << (3-withdrawalCount) << std::endl;
+}
+
 bool TrustAccount::Deposit(double amount)
 {
+	if (amount < 0)
+	{
+		return false;
+	}
 	if (amount >5000.0)
 	{
 		amount += 50.0;
 	}
-	return SavingsAccount::Deposit(amount);
+	amount += (amount * interestRate/100);
+	
+	this->balance += amount;
+	return true;
 }
 
-bool TrustAccount::Withdrawl(double amount)
+
+
+bool TrustAccount::Withdraw(double amount)
 {
 	if ( withdrawalCount >= 3 )
 	{
@@ -32,16 +47,15 @@ bool TrustAccount::Withdrawl(double amount)
 		std::cout << "Balance is too high!" << std::endl;
 		return false;
 	}
+	if (balance - amount < 0)
+	{
+
+		return false;
+	}
 
 	++withdrawalCount;
-	return SavingsAccount::Withdraw(amount);
+	this->balance -= amount;
+	return true;
 	
-	return false;
 }
 
-std::ostream& operator<<(std::ostream &os, const TrustAccount& account)
-{
-	os << "Trust Account name : " << account.getName() << std::endl << "balance: " << account.getBalance() << std::endl << "Interest Rate: " << account.getInterestRate() << std::endl
-		<< "Withdrawal left: " << (account.withdrawalCount) << std::endl;
-	return os;
-}

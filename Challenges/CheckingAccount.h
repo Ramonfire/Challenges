@@ -6,11 +6,12 @@
 
 class CheckingAccount :public Account
 {
-	friend std::ostream& operator<<(std::ostream &os, const CheckingAccount& account);
 public:
 	CheckingAccount(std::string name = dfName,double balance=0.0);
-	~CheckingAccount();
-	bool Withdraw(double amount);
+	virtual ~CheckingAccount();
+	virtual void print(std::ostream& os) const  override;
+	virtual bool Withdraw(double amount)override;
+	virtual bool Deposit(double amount) override;
 
 
 private:

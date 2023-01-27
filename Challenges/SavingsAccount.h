@@ -4,11 +4,12 @@
 
 class SavingsAccount:public Account
 {
-	friend std::ostream& operator<<(std::ostream& os, const SavingsAccount& account);
 public:
 	SavingsAccount(std::string accountName=defName,double balance=defBalance,double rate=defInterestRate );
-	~SavingsAccount();
-	bool Deposit(double amount);
+	virtual ~SavingsAccount();
+	virtual void print(std::ostream& os) const  override;
+	virtual bool Deposit(double amount) override;
+	virtual bool Withdraw(double amount) override;
 	double getInterestRate() const ;
 
 

@@ -143,6 +143,7 @@
     <ClCompile Include="AccountsUtility.cpp" />
     <ClCompile Include="Challenges.cpp" />
     <ClCompile Include="CheckingAccount.cpp" />
+    <ClCompile Include="I_Printable.cpp" />
     <ClCompile Include="Movie.cpp" />
     <ClCompile Include="Movies.cpp" />
     <ClCompile Include="Mystring.cpp" />
@@ -153,6 +154,7 @@
     <ClInclude Include="Account.h" />
     <ClInclude Include="AccountsUtility.h" />
     <ClInclude Include="CheckingAccount.h" />
+    <ClInclude Include="I_Printable.h" />
     <ClInclude Include="Movie.h" />
     <ClInclude Include="Movies.h" />
     <ClInclude Include="Mystring.h" />

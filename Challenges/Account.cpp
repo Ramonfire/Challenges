@@ -10,7 +10,7 @@ Account::~Account()
 {
 }
 
-bool Account::Deposit(double amount)
+/*bool Account::Deposit(double amount)
 {
 	if (amount<0)
 	{
@@ -18,9 +18,9 @@ bool Account::Deposit(double amount)
 	}
 	this->balance += amount;
 	return true;
-}
+}*/
 
-bool Account::Withdraw(double amount)
+/*bool Account::Withdraw(double amount)
 {
 	if (balance-amount<0)
 	{
@@ -29,6 +29,11 @@ bool Account::Withdraw(double amount)
 	}
 	this->balance -= amount;
 	return true;
+}*/
+
+void Account::print(std::ostream& os) const
+{
+	os << "Account name : " << this->getName() << std::endl << "balance" << this->getBalance() << std::endl;
 }
 
 double Account::getBalance() const
@@ -41,8 +46,3 @@ std::string Account::getName() const
 	return name;
 }
 
-std::ostream& operator<<(std::ostream& os, const Account& account)
-{
-	os << "Account name : " <<   account.getName() << std::endl << "balance" << account.getBalance() << std::endl;
-	return os;
-}
