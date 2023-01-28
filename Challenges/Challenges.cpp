@@ -22,6 +22,8 @@
 #include"TrustAccount.h"
 #include"CheckingAccount.h"
 #include"AccountsUtility.h"
+#include"Test.h"
+#include"TestUtil.h"
 
 using std::cout;
 using std::cin;
@@ -37,7 +39,6 @@ using std::string;
 
 void ReturnTypesInfo();
 
-void BehaviourOfPlusPlusI(); 
 
 /********************************** methodes declaration for  challenges***************************/
 void S4Challenge();
@@ -154,102 +155,6 @@ void ReturnTypesInfo(){
     cout << "  Min is: " << LDBL_MIN << " Max is: " << LDBL_MAX << endl;
 
     cout << "-size of string : " << sizeof(string) << endl;
-}
-//just thoughts i had .
-void BehaviourOfPlusPlusI() {
-    int i = 0;
-
-    /* let's start with i = 0 ;
-     *we'll try to predict the behaviour of adding i++ to ++i and ++i to ++i, in the course Mr Mitropoulous said it could be unpredictable,.
-     *in c++ the ++i incrementation is executed immediatly anything happens , though the i++ retains it's value until the end of the operation;
-     */
-    cout << "for : i++ + ++i" << endl;
-    cout << i++ + ++i << endl;//the expect result here would be 1 + 1,++i increments the value BEFORE the operation ,i retains the  value of 1 then  incerements itself
-    cout << "value of i " << i << endl;
-    i = 0;
-    cout << "for : ++i + ++i" << endl;
-    cout << ++i + ++i << endl; //the expected value is 2+2 =4 Before the addition , i is incremented TWICE making it s value 2. adding i to itself will give us 4;
-    cout << "value of i " << i << endl;
-    i = 0;
-
-    i = 0;
-    cout << "for : i++ + i++" << endl;
-    cout << i++ + i++ << endl; // the expected value is 0+ 0 = 0; i remains 0 until after the operation; i is incremented twice after the operation is done
-    cout << "value of i " << i << endl;
-
-
-    cout << "for : ++i + i++" << endl;
-    cout << ++i + i++ << endl;//the expected value is 1+1 = 2; inceremented the i before the operation then added it to itself and finally incremented it after the operation is done
-    cout << "value of i " << i << endl;
-
-
-
-
-    /*From this first test ,let's suppose that for addition:
-    * The pre-increment: ++variable would possible mean DO IT NOW BEFORE ANYTHING ELSE, meaning the value of the variable will change before the operation begins "smtg + ++i + smtg ";
-    *the post-increment  :variable++ would possibly  mean DO IT AFTER YOU FINISHED THIS OPERATION, mean the variable would use it's  value until the operation ends then increments itself
-    * this would be verified in the next tests
-    */
-
-    cout << "===================================================================================================" << endl;
-    /********************************************************************************************************************************/
-
-    //we established before the ++i is executed BEFORE THE OPERATION
-    // let's try it with some multiplication
-    // let's see if the compiler prioritizes ++i or multiplication
-    i = 1;
-    cout << "********for i * || + ++i++ ****** " << endl;
-    // if u were to execute this , the results would be 4
-    cout << "-for i  + ++i : ";
-    cout << i + ++i << endl;
-    cout << "value of i : " << i << endl;
-    //let's see the other way around
-    i = 1;
-    cout << "-for ++i + i   : ";
-    cout << ++i + i << endl;
-    cout << "value of i : " << i << endl;
-    //the result is also 4
-
-    //expected result should be 4
-    i = 1;
-    cout << "-for ++i *  i  : ";
-    cout << ++i * i << endl;
-    cout << "value of i : " << i << endl;
-    //execution result is 4
-    i = 1;
-    //expected result should be 4
-    cout << "-for i  * ++i : ";
-    cout << i * ++i << endl;
-    cout << "value of i : " << i << endl;
-    //execution result is 4
-    //we can now safely say that ++i is exectued before the execution of the entire operation.
-    //we can test it on a big range of operation , the result would be the same.
-
-
-
-
-    /******************************************************************************************************************************/
-    //for i ++ 
-    // we supposed i++ is executed after the operation finished.
-    // the result should be 2
-    i = 1;
-    cout << "for i  + i++  : ";
-    cout << i + i++ << endl;// execution result is indeed 2
-    cout << "value of i : " << i << endl;
-    //expected results should be 2
-    i = 1;
-    cout << "for i++ + i   : ";
-    cout << i++ + i << endl;// execution result is indeed 2
-    cout << "value of i : " << i << endl;
-    // verified that i++ is executed after the operation
-
-
-    /*
-     * To conclude : 
-     * ++variable is excuted before the entire operation;
-     *varibale++ is excuted after then end of the operation
-     *
-    */
 }
 
 //Section 4 challenge
@@ -788,7 +693,7 @@ void BehaviourOfPlusPlusI() {
 
  //Section 12 : Pointers
  void S12Challenge() {
-     //void pointers have no type therefore can store any kind of adress >:)
+     //void pointers have no type therefore can store any types. (Universal pointer)
      void* voidPtr{ nullptr };
      cout << "size of my computer pointers is : " << sizeof(voidPtr) << endl;
      cout << "My adress is :" << voidPtr << endl;
@@ -1075,7 +980,18 @@ void BehaviourOfPlusPlusI() {
 
  //Section 17 :Smart pointers
  void S17Challenge() {
- 
+     std::unique_ptr<vector<std::shared_ptr<Test>>> vecPtr;
+     vecPtr = make();
+     cout << "How many elements u want to insert";
+     int num{};
+     cin >> num;
+     cin.clear();
+     cin.ignore();
+     fill(*vecPtr, num);
+     cout << "Your vector is : ";
+
+     DisplayPtrVector(*vecPtr);
+
  }
 
  //Section 18 :Exception hadnling

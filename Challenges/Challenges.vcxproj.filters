@@ -34,13 +34,19 @@
     <Filter Include="Source Files\Account">
       <UniqueIdentifier>{f118505c-c97f-4b61-b96c-fd4bdad46327}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Account\Utility">
-      <UniqueIdentifier>{9a9bcb9d-f484-40fd-ae40-c191827a6282}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Account">
       <UniqueIdentifier>{969d5b8e-7fcf-43d9-a06d-637961ffabdb}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Account\Utility">
+    <Filter Include="Header Files\Test-S17">
+      <UniqueIdentifier>{2c5d6046-247d-45f2-8540-a85c7619074e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Test-S17">
+      <UniqueIdentifier>{5e93c4bb-7cf7-4c61-87ba-239aa9c947ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utility">
+      <UniqueIdentifier>{9a9bcb9d-f484-40fd-ae40-c191827a6282}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Utility">
       <UniqueIdentifier>{cf85cc20-1e10-4afb-aaf4-632dce1acb88}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -64,7 +70,7 @@
       <Filter>Source Files\Account</Filter>
     </ClCompile>
     <ClCompile Include="AccountsUtility.cpp">
-      <Filter>Source Files\Account\Utility</Filter>
+      <Filter>Source Files\Utility</Filter>
     </ClCompile>
     <ClCompile Include="TrustAccount.cpp">
       <Filter>Source Files\Account</Filter>
@@ -74,6 +80,12 @@
     </ClCompile>
     <ClCompile Include="I_Printable.cpp">
       <Filter>Source Files\Account-S16</Filter>
+    </ClCompile>
+    <ClCompile Include="Test.cpp">
+      <Filter>Source Files\Test-S17</Filter>
+    </ClCompile>
+    <ClCompile Include="TestUtil.cpp">
+      <Filter>Source Files\Utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -93,7 +105,7 @@
       <Filter>Header Files\Account</Filter>
     </ClInclude>
     <ClInclude Include="AccountsUtility.h">
-      <Filter>Header Files\Account\Utility</Filter>
+      <Filter>Header Files\Utility</Filter>
     </ClInclude>
     <ClInclude Include="TrustAccount.h">
       <Filter>Header Files\Account</Filter>
@@ -103,6 +115,12 @@
     </ClInclude>
     <ClInclude Include="I_Printable.h">
       <Filter>Header Files\Account-S16</Filter>
+    </ClInclude>
+    <ClInclude Include="Test.h">
+      <Filter>Header Files\Test-S17</Filter>
+    </ClInclude>
+    <ClInclude Include="TestUtil.h">
+      <Filter>Header Files\Utility</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

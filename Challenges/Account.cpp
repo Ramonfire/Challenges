@@ -8,6 +8,7 @@ Account::Account(std::string accountName, double balance)
 
 Account::~Account()
 {
+	std::cout << "Account destructor " << std::endl;
 }
 
 
