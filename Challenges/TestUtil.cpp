@@ -24,9 +24,10 @@ void fill(vector<std::shared_ptr<Test>>& vec, int num)
 
 void DisplayPtrVector(const vector<std::shared_ptr<Test>>& vec)
 {
-	for (auto& element : vec)
+	for (const auto& element : vec)
 	{
 		std::cout << "\t" << *element ;
+		// or std::cout<<element->getData()<<std::endl;
 	}
 	std::cout<< std::endl;
 }
