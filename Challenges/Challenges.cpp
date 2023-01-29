@@ -1016,7 +1016,7 @@ void ReturnTypesInfo(){
              testFunds->Withdraw(200);
              cout << "Done" << endl;
              }
-             catch (InsufficentFundsException& ex) {
+             catch (std::exception& ex) {
                  cout << ex.what()<<endl;
                  cout << endl;
              }
@@ -1029,7 +1029,7 @@ void ReturnTypesInfo(){
                  Account* testBalance = new SavingsAccount("test", -2, 0);
                  cout << "Done" << endl;
              }
-             catch (IllegalBalanceException& ex) {
+             catch (std::exception& ex) {
                  cout << ex.what() << endl;
                  cout << endl;
              }
