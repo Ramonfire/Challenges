@@ -49,6 +49,12 @@
     <Filter Include="Header Files\Utility">
       <UniqueIdentifier>{cf85cc20-1e10-4afb-aaf4-632dce1acb88}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Exceptions">
+      <UniqueIdentifier>{f88f8a0a-d56e-4774-862f-363d1abb51f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Exceptions">
+      <UniqueIdentifier>{2d37c730-3113-4955-8857-d0931ab5d55b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Challenges.cpp">
@@ -87,6 +93,12 @@
     <ClCompile Include="TestUtil.cpp">
       <Filter>Source Files\Utility</Filter>
     </ClCompile>
+    <ClCompile Include="InsufificentFundsException.cpp">
+      <Filter>Source Files\Exceptions</Filter>
+    </ClCompile>
+    <ClCompile Include="IllegalBalanceException.cpp">
+      <Filter>Source Files\Exceptions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Movie.h">
@@ -121,6 +133,12 @@
     </ClInclude>
     <ClInclude Include="TestUtil.h">
       <Filter>Header Files\Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="IllegalBalanceException.h">
+      <Filter>Header Files\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="InsufificentFundsException.h">
+      <Filter>Header Files\Exceptions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

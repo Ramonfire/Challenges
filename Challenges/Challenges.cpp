@@ -114,7 +114,7 @@ const int validityInDays{ 30 };
 int main()
 {
   
-    S17Challenge();
+    S18Challenge();
   
     return 0;// just return whatever number you want , usually i run void main() but i m trying to follow the course to the letter xD
 }
@@ -994,8 +994,61 @@ void ReturnTypesInfo(){
 
  }
 
- //Section 18 :Exception hadnling
- void S18Challenge() {}
+ //Section 18 :Exception hadnling, i know i had so many unhandeled exception in the other section but i m following the course.
+ // now that we are doing exception handling i can finally work in handeling all them exception , especially them NullPointerException >:(
+ void S18Challenge() {
+     cout << "testing both exception we implemented" << endl;
+     char input{};
+     do
+     {
+         cout << "chose and exception to test : F for funds exception , B for balance Exception,Q to quit the test" << endl;
+
+         cin >> input;
+         cin.clear();
+         cin.ignore();
+         switch (input)
+         {
+         case 'f':
+         case'F':
+         {
+             try{
+             Account* testFunds = new SavingsAccount("test", 0, 0);
+             testFunds->Withdraw(200);
+             cout << "Done" << endl;
+             }
+             catch (InsufficentFundsException& ex) {
+                 cout << ex.what()<<endl;
+                 cout << endl;
+             }
+             break;
+         } 
+         case 'B':
+         case'b':
+         {
+             try {
+                 Account* testBalance = new SavingsAccount("test", -2, 0);
+                 cout << "Done" << endl;
+             }
+             catch (IllegalBalanceException& ex) {
+                 cout << ex.what() << endl;
+                 cout << endl;
+             }
+             break;
+             break;
+         }
+         case 'Q':
+         case'q':
+         {
+             Quit();
+             break;
+         }
+         default:
+             break;
+         }
+
+     } while (input!='q' && input!='Q');
+    
+ }
 
  //Section 19 :i/o - Streams
  void S19Challenge() {}

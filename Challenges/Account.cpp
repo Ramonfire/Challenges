@@ -4,6 +4,10 @@
 Account::Account(std::string accountName, double balance) 
 	:name{ accountName }, balance{balance}
 {
+	if (balance<0)
+	{
+		throw IllegalBalanceException();
+	}
 }
 
 Account::~Account()
@@ -26,8 +30,7 @@ bool Account::Withdraw(double amount)
 {
 	if (balance-amount<0)
 	{
-
-		return false;
+		throw InsufficentFundsException();
 	}
 	this->balance -= amount;
 	return true;
