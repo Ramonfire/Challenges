@@ -5,7 +5,7 @@
 class InsufficentFundsException:public std::exception
 {
 public:
-	InsufficentFundsException()=default;
+	InsufficentFundsException() noexcept =default;
 	~InsufficentFundsException()=default;
 	virtual const char* what() const throw() override;
 
