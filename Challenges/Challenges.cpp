@@ -102,6 +102,26 @@ void FindMovie(Movies& movies);
 void UpdateWatchCount(Movies& movies);
 //S14
 void DisplayCharString(Mystring& Mystring);
+//S19
+void S19Challenge1();
+void S19Challenge2();
+void S19Challenge3();
+void S19Challenge4();
+struct City {
+    std::string name;
+    long population;
+    double cost;
+};
+
+struct Country {
+    std::string name;
+    std::vector<City> cities;
+};
+
+struct Tours {
+    std::string title;
+    std::vector<Country> countries;
+};
 /***********************************Globale variables for the S6 challenges****************************************/
 const double smallRoomFee{ 25.0 };
 const double largeRoomFee{ 35.0 };
@@ -110,11 +130,13 @@ const int validityInDays{ 30 };
 
 
 
+
+
 /**************************************** main funtion : will be running most tests for the entire course ******************************************/
 int main()
 {
   
-    S18Challenge();
+    S19Challenge();
   
     return 0;// just return whatever number you want , usually i run void main() but i m trying to follow the course to the letter xD
 }
@@ -1051,7 +1073,115 @@ void ReturnTypesInfo(){
  }
 
  //Section 19 :i/o - Streams
- void S19Challenge() {}
+ void S19Challenge() {
+
+      S19Challenge1();
+      S19Challenge2();
+      S19Challenge3();
+      S19Challenge4();
+ }
+
+ void S19Challenge1() {
+
+
+    
+     Tours tours
+     { "Tour Ticket Prices from Morocco",
+         {
+             {
+                 "Colombia", {
+                     { "Bogota", 8778000, 400.98 },
+                     { "Cali", 2401000, 424.12 },
+                     { "Medellin", 2464000, 350.98 },
+                     { "Cartagena", 972000, 345.34 }
+                 },
+             },
+             {
+                 "Brazil", {
+                     { "Rio De Janiero", 13500000, 567.45 },
+                     { "Sao Paulo", 11310000, 975.45 },
+                     { "Salvador", 18234000, 855.99 }
+                 },
+             },
+             {
+                 "Chile", {
+                     { "Valdivia", 260000, 569.12 },
+                     { "Santiago", 7040000, 520.00 }
+             },
+         },
+             { "Argentina", {
+                 { "Buenos Aires", 3010000, 723.77 }
+             }
+         },
+     }
+     };
+
+
+     const int field1size{ 10 };
+     const int field2size{ 20 };
+     const int field3size{ 15 };
+     const int field4size{ 15 };
+
+     std::cout <<std::setw(((field1size + field2size + field3size + field4size) -tours.title.length())/2)<<""<<tours.title << std::endl;//trying to find the location where i can put my title .We substract my desired mesurement form the lenght to try and figure how much space we will leave
+
+    
+
+
+
+     cout<<std::setw(field1size) << std::left << "Country" 
+         << std::setw(field2size)<<std::left<<"City" 
+         << std::setw(field3size) << std::right <<"Population" 
+         << std::setw(field4size) << std::right <<"Cost" << endl;
+     cout << std::setw(field1size+field2size+field3size+field4size)<<std::setfill('-')<<""<<endl;
+       
+     
+     cout << std::setfill(' ') << endl;
+     for (auto &country : tours.countries) {     
+         for (auto &city : country.cities) {    
+             if (city.name==country.cities.at(0).name)
+             {
+                 std::cout << std::setw(field1size) << std::left << country.name;
+                 std::cout << std::setw(field2size) << std::left << city.name;
+             }
+             else {
+                 std::cout << std::setw(field1size) << std::left << "";
+                 std::cout << std::setw(field2size) << std::left << city.name;
+             }
+
+
+            
+             cout  << std::setw(field3size) << std::right << setprecision(9) << city.population
+                  << std::setw(field4size) << std::right << setprecision(2)<<std::fixed << city.cost
+                     << std::endl;
+         }
+
+         cout << std::setw(field1size + field2size + field3size + field4size) << std::setfill('-') << "" << endl;
+
+
+         cout << std::setfill(' ') << endl;
+     }
+
+     std::cout << std::endl << std::endl;
+
+
+
+
+     std::resetiosflags(std::ios::boolalpha);
+     std::resetiosflags(std::ios::showbase);
+     std::resetiosflags(std::ios::showpos);
+     std::resetiosflags(std::ios::basefield);
+     cout<< setprecision(6);
+     
+ }
+ void S19Challenge2() {
+ 
+ }
+ void S19Challenge3() {
+ 
+ }
+ void S19Challenge4() {
+ 
+ }
 
  //Section 20 :STL
  void S20Challenge() {}
