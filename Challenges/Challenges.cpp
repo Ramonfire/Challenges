@@ -15,6 +15,7 @@
 #include<cstring>//character base function
 #include<string>
 #include<cmath>
+#include<fstream>
 #include"Movies.h"
 #include"Mystring.h"
 #include"Account.h"
@@ -106,6 +107,8 @@ void DisplayCharString(Mystring& Mystring);
 void S19Challenge1();
 void S19Challenge2();
 void S19Challenge3();
+int findOccurencesOfWord(string& word, string& phrase);
+int findOccurencesOfWordtoo(string& word, string& comparedword);
 void S19Challenge4();
 struct City {
     std::string name;
@@ -1074,11 +1077,52 @@ void ReturnTypesInfo(){
 
  //Section 19 :i/o - Streams
  void S19Challenge() {
+     cout << "This section had many challenge ," << endl;
+     char input{};
+     do
+     {
+         cout << "chose from 1 to 4 to see one or Q to quit" << endl;
 
-      S19Challenge1();
-      S19Challenge2();
-      S19Challenge3();
-      S19Challenge4();
+         cin >> input;
+         cin.clear();
+         cin.ignore();
+         switch (input)
+         {
+         case '1':
+         {
+             S19Challenge1();
+             break;
+         }
+         case '2':
+         {
+             S19Challenge2();
+             break;
+         }
+         case '3':
+         {
+             S19Challenge3();
+             break;
+         }case '4':
+         {
+             S19Challenge4();
+             break;
+         }
+
+         case 'Q':
+         case'q':
+         {
+             Quit();
+             break;
+         }
+         default:
+             break;
+         }
+
+     } while (input != 'q' && input != 'Q');
+     
+      
+    
+    
  }
 
  void S19Challenge1() {
@@ -1174,11 +1218,127 @@ void ReturnTypesInfo(){
      
  }
  void S19Challenge2() {
- 
+     std::fstream file{ "responses.txt",std::ios::in };
+     string line{};
+     string correctAnswer{};
+     string name{};
+     string answer{};
+     int counter{};
+     int index{};
+     int studentCounter{};
+     double totalScore{};
+
+     if (!file.is_open())
+     {
+         std::cerr << "error finding the file" << endl;
+         return;
+         
+     }
+
+     getline(file, correctAnswer);
+
+     cout << std::setw(10) << std::left << "name"
+         << std::setw(10) << "answers" << std::setw(10) << "grades" << endl;
+     cout << std::setfill('-');
+     cout << std::setw(30) << "";
+     cout << std::setfill(' ')<<endl;
+     while (!file.eof())
+     {
+         getline(file, name);
+         getline(file, answer);
+         studentCounter++;
+         for (char a : answer)
+         {
+             if (a == correctAnswer.at(index))
+             {
+                 counter++;
+             }
+             index++;
+         }
+         cout << std::setw(10) << std::left << name
+             << std::setw(10) << answer  << counter  << endl;
+
+         totalScore += static_cast<double>(counter) ;
+         index = 0;
+         counter = 0;
+     }
+     cout << std::setfill('-');
+     cout << std::setw(30) << "";
+     cout << std::setfill(' ') << endl;
+     if (totalScore!=0)
+     {
+         cout << std::setw(10) << std::left << "Average Score"
+             << std::setw(10) << "" <<setprecision(1)<<std::fixed<< totalScore / studentCounter << "/" << correctAnswer.length() << endl;
+     }
+     else
+     {
+         cout << std::setw(10) << std::left << "Average Score"
+             << std::setw(10) << "" << 0 << "/" << correctAnswer.length() << endl;
+     }
+  
+
+     file.close();
  }
  void S19Challenge3() {
+     std::fstream file{ "play.txt",std::ios::in };
+     string line{};
+     int occurenceCount{};
+     string wordToLookFor{};
+
+     cout << "what word do you want to look for" << endl;
+     cin >> wordToLookFor;
+
+     if (!file)
+     {
+         std::cerr << "could not open file, Path possible invalid"<<endl;
+     }
+
+     while (!file.eof())
+     {
+         //file >> line; for only picking one word
+
+         getline(file, line);
+         occurenceCount+=findOccurencesOfWord(wordToLookFor, line);
+     }
+
+     cout << "number of occurence of the word "<<wordToLookFor<<" is :" <<occurenceCount << endl;
  
  }
+ //find number of occurences of a world within a phrase
+ int findOccurencesOfWord(string &word,string &phrase){
+     int index{};
+     int occurences{};
+
+     for (char p : phrase)
+     {
+         if (p == word.at(index))
+         {
+             index++;
+         }
+         else
+         {
+             index = 0;
+         }
+
+         if (index == word.length())
+         {
+             occurences++;
+             index = 0;
+         }
+
+     }
+
+     return occurences;;
+ }
+ //find number of occurences of a world  in an other word. this solution matches the one presented in the class
+ int findOccurencesOfWordtoo(string& word, string& comparedword) {
+     if (comparedword.find(word) == string::npos)
+     {
+         return 0;
+     }
+     else return 1;
+ }
+
  void S19Challenge4() {
  
  }

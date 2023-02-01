@@ -169,6 +169,11 @@
     <ClInclude Include="TestUtil.h" />
     <ClInclude Include="TrustAccount.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="description.txt" />
+    <Text Include="play.txt" />
+    <Text Include="responses.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

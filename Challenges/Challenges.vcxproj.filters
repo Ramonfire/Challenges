@@ -141,4 +141,15 @@
       <Filter>Header Files\Exceptions</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="description.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="responses.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="play.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
 </Project>
