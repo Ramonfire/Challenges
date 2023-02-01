@@ -1210,10 +1210,10 @@ void ReturnTypesInfo(){
 
 
 
-     std::resetiosflags(std::ios::boolalpha);
-     std::resetiosflags(std::ios::showbase);
-     std::resetiosflags(std::ios::showpos);
-     std::resetiosflags(std::ios::basefield);
+     cout<<std::resetiosflags(std::ios::boolalpha);
+     cout << std::resetiosflags(std::ios::showbase);
+     cout << std::resetiosflags(std::ios::showpos);
+     cout << std::resetiosflags(std::ios::basefield);
      cout<< setprecision(6);
      
  }
