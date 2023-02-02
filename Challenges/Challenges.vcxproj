@@ -170,9 +170,10 @@
     <ClInclude Include="TrustAccount.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="description.txt" />
+    <Text Include="copy.txt" />
     <Text Include="play.txt" />
     <Text Include="responses.txt" />
+    <Text Include="Romeo x Juliet.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

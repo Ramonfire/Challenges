@@ -115,16 +115,19 @@ struct City {
     long population;
     double cost;
 };
-
 struct Country {
     std::string name;
     std::vector<City> cities;
 };
-
 struct Tours {
     std::string title;
     std::vector<Country> countries;
 };
+//S20
+void S20Challenge1();
+void S20Challenge2();
+void S20Challenge3();
+void S20Challenge4();
 /***********************************Globale variables for the S6 challenges****************************************/
 const double smallRoomFee{ 25.0 };
 const double largeRoomFee{ 35.0 };
@@ -139,7 +142,7 @@ const int validityInDays{ 30 };
 int main()
 {
   
-    S19Challenge();
+    S20Challenge();
   
     return 0;// just return whatever number you want , usually i run void main() but i m trying to follow the course to the letter xD
 }
@@ -1302,7 +1305,7 @@ void ReturnTypesInfo(){
      }
 
      cout << "number of occurence of the word "<<wordToLookFor<<" is :" <<occurenceCount << endl;
- 
+     file.close();
  }
  //find number of occurences of a world within a phrase
  int findOccurencesOfWord(string &word,string &phrase){
@@ -1340,11 +1343,92 @@ void ReturnTypesInfo(){
  }
 
  void S19Challenge4() {
- 
+   
+     std::fstream file{ "Romeo x Juliet.txt",  std::ios::in };//can only write
+     std::fstream copy{ "copy.txt",std::ios::app };
+     int index{};
+
+
+     if (!file.is_open())
+     {
+         std::cerr << "Error opening or finding the file" << endl;
+         return;
+     } 
+     if (!copy.is_open())
+     {
+         std::cerr << "Error opening or finding the file" << endl;
+         return;
+     }
+
+     string line{};
+     string temp{};
+     while (!file.eof())
+     {
+         ++index;
+         getline(file, line);
+         copy <<std::setw(10)<<std::left <<index<< line << endl;
+
+         line.clear();
+     }
+     cout << "done copying from  Romeo x Juliet.txt to copy.txt" <<endl;
+     file.close();
+     copy.close();
  }
 
+
+
  //Section 20 :STL
- void S20Challenge() {}
+ void S20Challenge() {
+
+     cout << "This section had many challenge ," << endl;
+     char input{};
+     do
+     {
+         cout << "chose from 1 to 4 to see one or Q to quit" << endl;
+
+         cin >> input;
+         cin.clear();
+         cin.ignore();
+         switch (input)
+         {
+         case '1':
+         {
+             S20Challenge1();
+             break;
+         }
+         case '2':
+         {
+             S20Challenge2();
+             break;
+         }
+         case '3':
+         {
+             S20Challenge3();
+             break;
+         }case '4':
+         {
+             S20Challenge4();
+             break;
+         }
+
+         case 'Q':
+         case'q':
+         {
+             Quit();
+             break;
+         }
+         default:
+             break;
+         }
+
+     } while (input != 'q' && input != 'Q');
+
+ }
+
+ void S20Challenge1() {}
+ void S20Challenge2() {}
+ void S20Challenge3() {}
+ void S20Challenge4() {}
 
  //Section 21 :Lambda Expressions
  void S21Challenge() {}

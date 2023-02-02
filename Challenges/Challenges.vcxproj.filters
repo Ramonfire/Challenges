@@ -142,13 +142,16 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="description.txt">
-      <Filter>Resource Files</Filter>
-    </Text>
     <Text Include="responses.txt">
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="play.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="Romeo x Juliet.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="copy.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
