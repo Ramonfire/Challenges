@@ -6,16 +6,21 @@
 *
 */
 
+//used libraries
 #include <iostream>// the good ol iostream
 #include<climits>// mins max and others
 #include<cfloat> // mins max and others
 #include<vector> // vectors
+#include<deque>//deque
 #include<iomanip>//manipulate the input output format
 #include<cctype>//c style strings functions
 #include<cstring>//character base function
 #include<string>
 #include<cmath>
 #include<fstream>
+#include<algorithm>
+
+//My defined libraries/classes
 #include"Movies.h"
 #include"Mystring.h"
 #include"Account.h"
@@ -26,6 +31,15 @@
 #include"Test.h"
 #include"TestUtil.h"
 
+
+
+
+//definition for macros and typenames
+
+
+
+
+//some of the used functions from std, to avoid writting std::foo
 using std::cout;
 using std::cin;
 using std::endl;
@@ -35,6 +49,13 @@ using std::noboolalpha;
 using std::fixed;
 using std::setprecision;
 using std::string;
+
+
+
+
+
+
+
 
 
 
@@ -128,6 +149,13 @@ void S20Challenge1();
 void S20Challenge2();
 void S20Challenge3();
 void S20Challenge4();
+
+template<typename T>
+void displayVector(const vector<T>& vec);
+template<typename T>
+void displayDeque(const std::deque<T>& vec);
+
+bool isPalindrome(const std::string& str);
 /***********************************Globale variables for the S6 challenges****************************************/
 const double smallRoomFee{ 25.0 };
 const double largeRoomFee{ 35.0 };
@@ -1425,10 +1453,96 @@ void ReturnTypesInfo(){
 
  }
 
- void S20Challenge1() {}
- void S20Challenge2() {}
+
+ void S20Challenge1() {
+
+     std::vector<string> testStrings{"a","aa","AaaA","test","A toyota's a toyota","A Santa at Nasa","ana","bob","palindrome"};
+    
+
+     std::for_each(testStrings.begin(), testStrings.end(), [](string x) {
+         if (isPalindrome(x))
+         {
+             cout << x << " " << "is a palindrome" << endl;
+         }else {
+             cout << x << " " << "is not a palindrome" << endl;
+         }
+            
+
+         });
+
+ }
+ bool isPalindrome(const std::string& str) {
+     std::deque<char> myString;
+     bool isPalindrome{ true };
+
+     std::copy_if(str.begin(), str.end(), std::back_inserter(myString),
+         [](char x) {
+             return isalpha(x);
+         });
+
+     std::for_each(myString.begin(), myString.end(), [](char& x) {
+         x = tolower(x);
+         });
+
+     while (!myString.empty())
+     {
+         if (*myString.begin() != *(myString.end() - 1)) {
+             isPalindrome = false;
+         }
+
+         myString.pop_back();
+         if (myString.begin() != myString.end())//incase we have an odd number of letters , we must assure that we dont pop and empty deque , that would cause an error
+             myString.pop_front();
+     }
+
+     return isPalindrome;
+ }
+
+
+
+ void S20Challenge2() {
+
+ }
  void S20Challenge3() {}
  void S20Challenge4() {}
+
+
+
+ template<typename T>
+ void displayVector(const vector<T> &vec) {
+     int index{};
+     for (auto &element : vec)
+     {
+         cout << std::setw(10)<< element ;
+         index++;
+
+         if (index==5)
+         {
+             cout << endl;
+             index = 0;
+         }
+     }
+     cout << endl;
+     
+ }
+
+ template<typename T>
+ void displayDeque(const std::deque<T>& vec) {
+     int index{};
+     for (auto& element : vec)
+     {
+         cout << std::setw(10) << element;
+         index++;
+
+         if (index == 5)
+         {
+             cout << endl;
+             index = 0;
+         }
+     }
+     cout << endl;
+
+ }
 
  //Section 21 :Lambda Expressions
  void S21Challenge() {}
