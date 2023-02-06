@@ -150,6 +150,7 @@
     <ClCompile Include="Movies.cpp" />
     <ClCompile Include="Mystring.cpp" />
     <ClCompile Include="SavingsAccount.cpp" />
+    <ClCompile Include="Song.cpp" />
     <ClCompile Include="Test.cpp" />
     <ClCompile Include="TestUtil.cpp" />
     <ClCompile Include="TrustAccount.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="Movies.h" />
     <ClInclude Include="Mystring.h" />
     <ClInclude Include="SavingsAccount.h" />
+    <ClInclude Include="Song.h" />
     <ClInclude Include="Test.h" />
     <ClInclude Include="TestUtil.h" />
     <ClInclude Include="TrustAccount.h" />

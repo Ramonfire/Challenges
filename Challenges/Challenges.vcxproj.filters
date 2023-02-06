@@ -55,6 +55,12 @@
     <Filter Include="Source Files\Exceptions">
       <UniqueIdentifier>{2d37c730-3113-4955-8857-d0931ab5d55b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Song">
+      <UniqueIdentifier>{1063d74a-720b-43e8-9d23-4e5b854bc1bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Song">
+      <UniqueIdentifier>{d0dbe655-1c32-4292-a930-9a01ab44de1d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Challenges.cpp">
@@ -99,6 +105,9 @@
     <ClCompile Include="IllegalBalanceException.cpp">
       <Filter>Source Files\Exceptions</Filter>
     </ClCompile>
+    <ClCompile Include="Song.cpp">
+      <Filter>Source Files\Song</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Movie.h">
@@ -139,6 +148,9 @@
     </ClInclude>
     <ClInclude Include="InsufificentFundsException.h">
       <Filter>Header Files\Exceptions</Filter>
+    </ClInclude>
+    <ClInclude Include="Song.h">
+      <Filter>Header Files\Song</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

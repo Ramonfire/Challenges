@@ -6,12 +6,17 @@
 *
 */
 
-//used libraries
+
 #include <iostream>// the good ol iostream
-#include<climits>// mins max and others
-#include<cfloat> // mins max and others
+
+//data structures
 #include<vector> // vectors
 #include<deque>//deque
+#include<list>
+#include<forward_list>
+//utilities
+#include<climits>// mins max and others
+#include<cfloat> // mins max and others
 #include<iomanip>//manipulate the input output format
 #include<cctype>//c style strings functions
 #include<cstring>//character base function
@@ -19,6 +24,7 @@
 #include<cmath>
 #include<fstream>
 #include<algorithm>
+#include<sstream>
 
 //My defined libraries/classes
 #include"Movies.h"
@@ -30,6 +36,7 @@
 #include"AccountsUtility.h"
 #include"Test.h"
 #include"TestUtil.h"
+#include"Song.h"
 
 
 
@@ -152,10 +159,14 @@ void S20Challenge4();
 
 template<typename T>
 void displayVector(const vector<T>& vec);
+
 template<typename T>
 void displayDeque(const std::deque<T>& vec);
 
 bool isPalindrome(const std::string& str);
+void display_menu();
+void play_current_song(const Song& song);
+void display_playlist(const std::list<Song>& playlist, const Song& current_song);
 /***********************************Globale variables for the S6 challenges****************************************/
 const double smallRoomFee{ 25.0 };
 const double largeRoomFee{ 35.0 };
@@ -1460,14 +1471,10 @@ void ReturnTypesInfo(){
     
 
      std::for_each(testStrings.begin(), testStrings.end(), [](string x) {
-         if (isPalindrome(x))
-         {
-             cout << x << " " << "is a palindrome" << endl;
-         }else {
-             cout << x << " " << "is not a palindrome" << endl;
-         }
-            
 
+         cout << x<<" is ";
+         cout << (isPalindrome(x)?"" : "not ");
+         cout << "a palindrome" << endl;
          });
 
  }
@@ -1501,11 +1508,131 @@ void ReturnTypesInfo(){
 
 
  void S20Challenge2() {
+     std::list<Song> playlist{
+           {"God's Plan",        "Drake",                     5},
+           {"Never Be The Same", "Camila Cabello",            5},
+           {"Pray For Me",       "The Weekend and K. Lamar",  4},
+           {"The Middle",        "Zedd, Maren Morris & Grey", 5},
+           {"Wait",              "Maroone 5",                 4},
+           {"Whatever It Takes", "Imagine Dragons",           3}
+     };
 
+     std::list<Song>::iterator current_song = playlist.begin();
+     char userInput;
+
+     do
+     {
+         display_menu();
+         cin >> userInput;
+         switch (userInput)
+         {
+         case'F':
+         case'f': {
+             current_song = playlist.begin();
+             play_current_song(*current_song);
+             break;
+         }
+         case'n':
+         case'N': {
+
+            ++current_song;
+
+             if (current_song == playlist.end())
+             {
+                 current_song = playlist.begin();
+             }
+            
+             play_current_song(*current_song);
+             break;
+         }
+         case'p':
+         case'P': {
+             if (current_song ==playlist.begin())
+             {
+                 current_song = playlist.end();
+                 current_song--;
+             }
+             else
+             {
+                 current_song--;
+             }
+             play_current_song(*current_song);
+             break;
+         }
+         case'A':
+         case'a': {
+             string name{};
+             string artist{};
+             int rating{};
+             string rt{};
+     
+             cout << "state the name of the song" << endl;
+             cin >> name;
+             cout << "state the artist  of the song" << endl;
+             cin >> artist;
+             cout << "state the rating of the song( 1 to 5)" << endl;
+
+             while (true) {
+                 getline(cin, rt);
+                 std::stringstream my_string(rt);
+                 if (my_string >>rating)
+                 {
+                     if (rating<=5 && rating>=1)
+                     {
+                         break;
+                     }
+                    
+                 }
+                 cout << "invalid value, please insert an integer between 1 and 5" << endl;
+             }
+
+             playlist.emplace(current_song,name, artist, rating);
+             break;
+         }
+         case'l':
+         case'L': {
+             display_playlist(playlist,*current_song);
+             break;
+         }
+         case'Q':
+         case'q': {
+             std::cout << "Thanks for listening!" << std::endl;
+             break;
+         }
+         default:
+             break;
+         }
+     } while (userInput != 'q' && userInput!='Q');
+   
+
+     
  }
+
+ void display_menu() {
+     std::cout << "\nF - Play First Song" << std::endl;
+     std::cout << "N - Play Next song" << std::endl;
+     std::cout << "P - Play Previous song" << std::endl;
+     std::cout << "A - Add and play a new Song at current location" << std::endl;
+     std::cout << "L - List the current playlist" << std::endl;
+     std::cout << "===============================================" << std::endl;
+     std::cout << "Enter a selection (Q to quit): ";
+ }
+ void play_current_song(const Song& song) {
+     std::cout << "Playing : " << song.get_name() <<" By "<< song.get_artist() << std::endl<< std::endl<< std::endl<< std::endl;
+ }
+ void display_playlist(const std::list<Song>& playlist, const Song& current_song) {
+     cout << "Your playlist : " << endl;
+        
+     std::for_each(playlist.begin(), playlist.end(), [](Song song) {
+         cout << song << endl;
+         });
+     cout << "currently playing " << current_song.get_name() << " By " << current_song.get_artist() << std::endl<< std::endl<< std::endl<< std::endl;
+ }
+
+
+
  void S20Challenge3() {}
  void S20Challenge4() {}
-
 
 
  template<typename T>
