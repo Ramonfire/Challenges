@@ -1550,12 +1550,10 @@ void ReturnTypesInfo(){
              if (current_song ==playlist.begin())
              {
                  current_song = playlist.end();
-                 current_song--;
+                
              }
-             else
-             {
-                 current_song--;
-             }
+             
+             current_song--;
              play_current_song(*current_song);
              break;
          }
@@ -1567,13 +1565,15 @@ void ReturnTypesInfo(){
              string rt{};
      
              cout << "state the name of the song" << endl;
-             cin >> name;
+             getline(cin, name);
              cout << "state the artist  of the song" << endl;
-             cin >> artist;
+             getline(cin, artist);
              cout << "state the rating of the song( 1 to 5)" << endl;
 
              while (true) {
-                 getline(cin, rt);
+                 cin >> rt;
+                 cin.clear();
+                 cin.ignore();
                  std::stringstream my_string(rt);
                  if (my_string >>rating)
                  {
