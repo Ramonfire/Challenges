@@ -1752,7 +1752,7 @@ void ReturnTypesInfo(){
                  //words[word] = 1; simpler synthax
              }
              else {
-                 (*it).second++;
+                 it->second++;
              }
 
          }
@@ -1800,7 +1800,7 @@ void ReturnTypesInfo(){
              }
              else
              {
-                 (*it).second.emplace(lineIndex);
+                 it->second.emplace(lineIndex);
              }
             
 
