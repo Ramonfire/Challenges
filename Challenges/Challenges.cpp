@@ -14,6 +14,10 @@
 #include<deque>//deque
 #include<list>
 #include<forward_list>
+#include<set>
+#include<map>
+
+
 //utilities
 #include<climits>// mins max and others
 #include<cfloat> // mins max and others
@@ -156,7 +160,7 @@ void S20Challenge1();
 void S20Challenge2();
 void S20Challenge3();
 void S20Challenge4();
-
+//S20-1
 template<typename T>
 void displayVector(const vector<T>& vec);
 
@@ -164,9 +168,18 @@ template<typename T>
 void displayDeque(const std::deque<T>& vec);
 
 bool isPalindrome(const std::string& str);
+
+//S20-2
 void display_menu();
 void play_current_song(const Song& song);
 void display_playlist(const std::list<Song>& playlist, const Song& current_song);
+
+//S20-3
+void display_words(const std::map<std::string, int>& words);
+void display_words(const std::map<std::string, std::set<int>>& words);
+std::string clean_string(const std::string& s);
+void part1();
+void part2();
 /***********************************Globale variables for the S6 challenges****************************************/
 const double smallRoomFee{ 25.0 };
 const double largeRoomFee{ 35.0 };
@@ -1464,7 +1477,7 @@ void ReturnTypesInfo(){
 
  }
 
-
+ //S20-1
  void S20Challenge1() {
 
      std::vector<string> testStrings{"a","aa","AaaA","test","A toyota's a toyota","A Santa at Nasa","ana","bob","palindrome"};
@@ -1505,8 +1518,43 @@ void ReturnTypesInfo(){
      return isPalindrome;
  }
 
+ template<typename T>
+ void displayVector(const vector<T>& vec) {
+     int index{};
+     for (auto& element : vec)
+     {
+         cout << std::setw(10) << element;
+         index++;
 
+         if (index == 5)
+         {
+             cout << endl;
+             index = 0;
+         }
+     }
+     cout << endl;
 
+ }
+
+ template<typename T>
+ void displayDeque(const std::deque<T>& vec) {
+     int index{};
+     for (auto& element : vec)
+     {
+         cout << std::setw(10) << element;
+         index++;
+
+         if (index == 5)
+         {
+             cout << endl;
+             index = 0;
+         }
+     }
+     cout << endl;
+
+ }
+
+ //S20-2
  void S20Challenge2() {
      std::list<Song> playlist{
            {"God's Plan",        "Drake",                     5},
@@ -1630,46 +1678,147 @@ void ReturnTypesInfo(){
  }
 
 
+ //S20-3
+ void S20Challenge3() {
+     part1();
+     part2();
+ }
 
- void S20Challenge3() {}
+
+ void display_words(const std::map<std::string, int>& words) {
+     std::cout << std::setw(12) << std::left << "\nWord"
+         << std::setw(7) << std::right << "Count" << std::endl;
+     std::cout << "===================" << std::endl;
+     for (auto pair : words)
+         std::cout << std::setw(12) << std::left << pair.first
+         << std::setw(7) << std::right << pair.second << std::endl;
+ }
+ void display_words(const std::map<std::string, std::set<int>>& words)
+ {
+     std::cout << std::setw(12) << std::left << "\nWord"
+         << "Occurrences" << std::endl;
+     std::cout << "=====================================================================" << std::endl;
+     for (auto pair : words) {
+         std::cout << std::setw(12) << std::left << pair.first
+             << std::left << "[ ";
+         for (auto i : pair.second)
+             std::cout << i << " ";
+         std::cout << "]" << std::endl;
+     }
+ }
+
+
+ std::string clean_string(const std::string& s) {
+     std::string result;
+     for (char c : s) {
+         if (c == '.' || c == ',' || c == ';' || c == ':')
+             continue;
+         else
+             result += c;
+     }
+     return result;
+ }
+
+ /* Part1 process the file and builds a map of words and the 
+  number of times they occur in the file*/
+
+ void part1() {
+     std::map<std::string, int> words;
+     std::string line;
+     std::string word;
+     std::fstream file{ "words.txt",std::ios::in };
+     if (!file.is_open()) {
+
+         std::cerr << "Error opening input file" << std::endl;
+         return;
+     }
+    
+     while (!file.eof())
+     {
+         getline(file, line);
+         clean_string(line);
+         std::stringstream ss{ line };
+         
+         while (!ss.eof())
+         {
+
+             ss >> word;
+             
+             auto it = words.find(word);
+
+             if (it==words.end())
+             {
+                 words.insert(std::make_pair(word, 1));
+                 //words[word] = 1; simpler synthax
+             }
+             else {
+                 (*it).second++;
+             }
+
+         }
+        
+     }
+     file.close();
+     display_words(words);
+ }
+
+ /* Part2 process the file and builds a map of words and a 
+  set of line numbers in which the word appears*/
+ void part2() {
+     std::map<std::string, std::set<int>> words;
+     std::string line;
+     std::string word;
+     std::fstream file{ "words.txt",std::ios::in };
+     if (!file.is_open()) {
+
+         std::cerr << "Error opening input file" << std::endl;
+         return;
+
+
+     }
+     int lineIndex{};
+     while (!file.eof())
+     {
+         ++lineIndex;
+         getline(file, line);
+         clean_string(line);
+         std::stringstream ss{ line };
+
+         while (!ss.eof())
+         {
+
+             ss >> word;
+
+             auto it = words.find(word);
+
+             if (it == words.end())
+             {
+                 std::set<int> tobeInserted{ lineIndex };
+                
+                 words.insert(std::make_pair(word, tobeInserted));
+                 
+             }
+             else
+             {
+                 (*it).second.emplace(lineIndex);
+             }
+            
+
+         }
+        
+
+     }
+
+     file.close();
+     display_words(words);
+ }
+
+
+ //S20-4
  void S20Challenge4() {}
 
 
- template<typename T>
- void displayVector(const vector<T> &vec) {
-     int index{};
-     for (auto &element : vec)
-     {
-         cout << std::setw(10)<< element ;
-         index++;
 
-         if (index==5)
-         {
-             cout << endl;
-             index = 0;
-         }
-     }
-     cout << endl;
-     
- }
-
- template<typename T>
- void displayDeque(const std::deque<T>& vec) {
-     int index{};
-     for (auto& element : vec)
-     {
-         cout << std::setw(10) << element;
-         index++;
-
-         if (index == 5)
-         {
-             cout << endl;
-             index = 0;
-         }
-     }
-     cout << endl;
-
- }
 
  //Section 21 :Lambda Expressions
  void S21Challenge() {}

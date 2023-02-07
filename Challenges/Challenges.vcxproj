@@ -176,6 +176,7 @@
     <Text Include="play.txt" />
     <Text Include="responses.txt" />
     <Text Include="Romeo x Juliet.txt" />
+    <Text Include="words.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
