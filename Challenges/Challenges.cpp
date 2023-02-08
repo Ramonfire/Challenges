@@ -16,6 +16,8 @@
 #include<forward_list>
 #include<set>
 #include<map>
+#include<stack>
+#include<queue>
 
 
 //utilities
@@ -109,10 +111,6 @@ void S19Challenge();
 
 void S20Challenge();
 
-void S21Challenge();
-
-
-void S23Challenge();
 /*******************************************************  methodes used by  the challenges*********************************************************************/
 // S10
 string Encrypt(string , string , string );
@@ -180,6 +178,14 @@ void display_words(const std::map<std::string, std::set<int>>& words);
 std::string clean_string(const std::string& s);
 void part1();
 void part2();
+//S20-4
+bool isPalindrome2(const std::string& str);
+template<typename T>
+void displayQueue(const std::queue<T>& queue);
+template<typename T>
+void displayStack(const std::stack<T>& queue);
+
+
 /***********************************Globale variables for the S6 challenges****************************************/
 const double smallRoomFee{ 25.0 };
 const double largeRoomFee{ 35.0 };
@@ -1507,7 +1513,7 @@ void ReturnTypesInfo(){
      while (!myString.empty())
      {
          if (*myString.begin() != *(myString.end() - 1)) {
-             isPalindrome = false;
+             return false;
          }
 
          myString.pop_back();
@@ -1515,7 +1521,7 @@ void ReturnTypesInfo(){
              myString.pop_front();
      }
 
-     return isPalindrome;
+     return false;
  }
 
  template<typename T>
@@ -1815,16 +1821,78 @@ void ReturnTypesInfo(){
 
 
  //S20-4
- void S20Challenge4() {}
+ void S20Challenge4() {
+ 
+     std::vector<std::string> test_strings{ "a", "aa", "aba", "abba", "abbcbba", "ab", "abc", "radar", "bob", "ana",
+       "avid diva", "Amore, Roma", "A Toyota's a toyota", "A Santa at NASA", "C++",
+       "A man, a plan, a cat, a ham, a yak, a yam, a hat, a canal-Panama!", "This is a palindrome", "palindrome" };
+
+     std::cout << std::boolalpha;
+     std::cout << std::setw(8) << std::left << "Result" << "String" << std::endl;
+     for (const auto& s : test_strings) {
+         std::cout << std::setw(8) << std::left << isPalindrome2(s) << s << std::endl;
+     }
+     std::cout << std::endl;
+ }
+
+ bool isPalindrome2(const std::string& str) {
+   
 
 
+     std::stack<char> stackstring{};
+     std::queue<char> queuestring{};
 
 
- //Section 21 :Lambda Expressions
- void S21Challenge() {}
+     for (auto x : str)
+     {
+         if (isalpha(x))
+         {
+             stackstring.push(tolower(x));
+             queuestring.push(tolower(x));
+         }
+         
+     }
+     
 
- //Section 23 : Enumerations
- void S23Challenge() {}
+     
+
+
+     while (!queuestring.empty() && !stackstring.empty())
+     {
+         if (queuestring.front() != stackstring.top()) {
+             return false;
+         }
+         queuestring.pop();
+         stackstring.pop();
+     }
+
+     return true;
+ }
+
+ template<typename T>
+ void displayQueue(const std::queue<T>& queue) {
+     std::queue<T> temp = queue;
+
+     while (!temp.empty())
+     {
+         std::cout << temp.front();
+         temp.pop();
+     }
+     cout << endl;
+ }
+ template<typename T>
+ void displayStack(const std::stack<T>& stack) {
+     
+     std::stack<T> temp = stack;
+
+     while (!temp.empty())
+     {
+         std::cout << temp.top();
+         temp.pop();
+     }
+     cout << endl;
+ }
+
 
 
   
