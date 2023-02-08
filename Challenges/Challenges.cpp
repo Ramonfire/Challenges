@@ -211,14 +211,17 @@ int main()
             << std::setw(width) << std::left << "challenge 13 : OOP" << std::setw(width) << "challenge 14 : operator overloading" << std::setw(width) << "challenge 15-17 : inheritance/polymorphism" << "\n\n"
             << std::setw(width) << std::left << "challenge 17 : smart pointers" << std::setw(width) << "challenge 18 : exception handling" << "\n\n"
             << std::setw(width) << std::left << "challenge 19 : Iostream" << std::setw(width) << "challenge 20 :STL"  << endl;
+        cout << "Lambda expressions are used through the  later challenges as for enumerator i used a normal enumerator in the movie class. " << endl;
+        cout << "What challenge do you want to test :"<<endl;
         cin >> input;
         cin.clear();
         cin.ignore();
 
-        std::stringstream ss{ input };
+        
 
         while (true)
         {
+            std::stringstream ss{ input };
             if (ss >> verifiable)
             {
                 break;
@@ -232,6 +235,7 @@ int main()
         }
 
 
+        cout << endl << endl;
 
         switch (verifiable)
         {
@@ -319,6 +323,7 @@ int main()
         }
         case-1: {
             cout << "goodBye" << endl;
+            break;
         }
 
         default:

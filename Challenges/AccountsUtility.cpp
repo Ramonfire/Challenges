@@ -1,4 +1,5 @@
 #include "AccountsUtility.h"
+#include"InsufificentFundsException.h"
 #include<iostream>
 
 void Display( const vector<Account*>& accounts)
@@ -22,11 +23,17 @@ void MassDeposit(vector<Account* >& accounts, double amount)
 
 void MassWithdraw(vector<Account*>& accounts, double amount)
 {
-	for (auto& acc:accounts)
+	for (auto& acc : accounts)
 	{
+		try {
 		std::cout << "Name: " << acc->getName() << std::endl;
-		std::cout<<" state: " ;
-		std::cout<< (acc->Withdraw(amount) ? "done" : "error");
+		std::cout << " state: ";
+		std::cout << (acc->Withdraw(amount) ? "done" : "error");
 		std::cout << std::endl;
+		}
+		catch (InsufficentFundsException e) {
+			std::cout << e.what() << std::endl;;
+
+			}
 	}
 }
