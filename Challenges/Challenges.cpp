@@ -199,10 +199,141 @@ const int validityInDays{ 30 };
 /**************************************** main funtion : will be running most tests for the entire course ******************************************/
 int main()
 {
+    string input{};
+    int verifiable{};
+    const int width{ 41 };
+    do
+    {
+        cout <<std::setw(35)<<std::right<<""<< "choose a challenge from 1 to 20 to run" << endl;
+        cout << std::setw(width) << std::left << "challenge 4 : getting started" << std::setw(width) << "challenge 5 : structure of a c++ program" << std::setw(width)<< "challenge 6 : Variables and constants" << "\n\n"
+            << std::setw(width) << std::left << "challenge 7 : Arrays and vectors" << std::setw(width) << "challenge 8 : statements and operators" << std::setw(width) << "challenge 9 : Program flow" << "\n\n"
+            << std::setw(width) << std::left << "challenge 10 : characters adn strings" << std::setw(width) << "challenge 11 : functions" << std::setw(width) << "challenge 12 : pointers and references" << "\n\n"
+            << std::setw(width) << std::left << "challenge 13 : OOP" << std::setw(width) << "challenge 14 : operator overloading" << std::setw(width) << "challenge 15-17 : inheritance/polymorphism" << "\n\n"
+            << std::setw(width) << std::left << "challenge 17 : smart pointers" << std::setw(width) << "challenge 18 : exception handling" << "\n\n"
+            << std::setw(width) << std::left << "challenge 19 : Iostream" << std::setw(width) << "challenge 20 :STL"  << endl;
+        cin >> input;
+        cin.clear();
+        cin.ignore();
+
+        std::stringstream ss{ input };
+
+        while (true)
+        {
+            if (ss >> verifiable)
+            {
+                break;
+            }
+            cout << "invalid input" << endl;
+            cout << "enter a valid input" << endl;
+            cin >> input;
+            cin.clear();
+            cin.ignore();
+
+        }
+
+
+
+        switch (verifiable)
+        {
+
+        case 1: {
+            cout << "this section had no challenges" << endl;
+            break; 
+        }
+        case 2: {
+            cout << "this section had no challenges" << endl;
+            break; 
+        }
+        case 3: {
+            
+            cout << "this section had no challenges" << endl; 
+            break;
+        }
+        case 4: {
+            S4Challenge();
+            break; 
+        }
+        case 5: {
+            S5Challenge();
+            break; 
+        }
+        case 6: {
+            S6Challenge();
+            break; 
+        }
+        case 7: {
+            S7Challenge();
+            break; 
+        }
+        case 8: {
+            S8Challenge();
+            break; 
+        }
+        case 9: {
+            S9Challenge();
+            break; 
+        }
+        case 10: {
+            S10Challenge();
+            break; 
+        }
+        case 11: {
+            S11Challenge();
+            break; 
+        }
+        case 12: {
+            S12Challenge();
+            break; 
+        }
+        case 13: {
+            S13Challenge();
+            break; 
+        }
+        case 14: {
+            S14Challenge();
+            break; 
+        }
+        case 15: {
+            S15_16Challenge();
+            break; 
+        }
+        case 16: {
+            S15_16Challenge();
+            break; 
+        }
+        case 17: {
+            S17Challenge();
+            break; 
+        }
+        case 18: {
+            S18Challenge();
+            break; 
+        }
+        case 19: {
+            S19Challenge();
+            break; 
+        }
+        case 20: {
+            S20Challenge();
+            break; 
+        }
+        case-1: {
+            cout << "goodBye" << endl;
+        }
+
+        default:
+            cout << "invalid input" << endl;
+            break;
+        }
+
+
+
+    } while (verifiable!=-1);
+    
+    
+
   
-    S20Challenge();
-  
-    return 0;// just return whatever number you want , usually i run void main() but i m trying to follow the course to the letter xD
+    return 0;
 }
 
 
